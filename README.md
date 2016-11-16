@@ -1,24 +1,25 @@
-# README
+## Testing US Digital standard with rails, implement basic user login and email notification system for prototype
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To get started with the app, clone the repo and then install the needed gems:
 
-Things you may want to cover:
+```
+$ bundle install --without production
+```
 
-* Ruby version
+Next, migrate the database:
 
-* System dependencies
+```
+$ rails db:migrate
+```
 
-* Configuration
+Finally, run the test suite to verify that everything is working correctly:
 
-* Database creation
+```
+$ rails test
+```
 
-* Database initialization
+If the test suite passes, you'll be ready to run the app in a local server:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ rails server
+```
