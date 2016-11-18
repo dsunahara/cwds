@@ -3150,6 +3150,7 @@ fieldset {
   padding-top: 3rem;
   padding-bottom: 3rem;
   background-image: url("img/hero.png");
+  /*background-image: url("<%= asset_path("img/hero.png") %>");*/
   background-position: center;
   background-size: cover;
 }
