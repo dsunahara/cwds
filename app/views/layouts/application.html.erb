@@ -1,14 +1,26 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>CwdsApp</title>
-    <%= csrf_meta_tags %>
+<!doctype html>
+  <html lang="en">
+    <head>
+      <title><%= full_title(yield(:title)) %>  </title>
+      <%= csrf_meta_tags %>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= render 'layouts/shim' %>
+    </head>
+    <body class="layout-demo">
+      <!--<a class="usa-skipnav" href="#main-content">Skip to main content</a>-->
+      <%= render 'layouts/header'%>
+   
+      <%= yield %>
+     
+      <%= render 'layouts/footer' %>
+    </body>
+  </html>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
+
+
+
+
+
+
