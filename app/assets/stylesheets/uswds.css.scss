@@ -1348,8 +1348,8 @@ select {
   -webkit-appearance: none;
   appearance: none;
   background-color: #ffffff;
-  background-image: url("img/arrow-down.png");
-  background-image: url("img/arrow-down.svg");
+  background-image: url(asset-path('img/arrow-down.png'));
+  background-image: url(asset-path('img/arrow-down.svg'));
   background-position: right 1.3rem center;
   background-repeat: no-repeat;
   background-size: 1.3rem;
@@ -1431,8 +1431,8 @@ legend {
 }
 
 [type="checkbox"]:checked + label::before {
-  background-image: url("img/correct8.png");
-  background-image: url("img/correct8.svg");
+  background-image: url(asset-path('img/correct8.png'));
+  background-image: url(asset-path('img/correct8.svg'));
   background-position: 50%;
   background-repeat: no-repeat;
 }
@@ -1707,8 +1707,8 @@ a:focus {
 }
 
 .usa-external_link::after {
-  background: url("img/external-link.png") no-repeat 0 0;
-  background: url("img/external-link.svg") no-repeat 0 0;
+  background: url(asset-path('img/external-link.png')) no-repeat 0 0;
+  background: url(asset-path('img/external-link.svg')) no-repeat 0 0;
   background-size: 100%;
   content: '';
   display: inline-block;
@@ -3151,7 +3151,6 @@ fieldset {
   padding-bottom: 3rem;
   background-image: url(asset-path('img/hero.png'));
   
-  /*background-image: url("<%= asset_path("img/hero.png") %>");*/
   background-position: center;
   background-size: cover;
 }
@@ -3765,8 +3764,8 @@ fieldset {
 }
 
 .usa-nav-primary button[aria-expanded=false] {
-  background-image: url("img/plus-alt.png");
-  background-image: url("img/plus-alt.svg");
+  background-image: url(asset-path('img/plus-alt.png'));
+  background-image: url(asset-path('img/plus-alt.svg'));
   background-repeat: no-repeat;
   background-position: right 0 center;
   background-size: 1rem;
@@ -3774,15 +3773,15 @@ fieldset {
 
 @media screen and (min-width: 951px) {
   .usa-nav-primary button[aria-expanded=false] {
-    background-image: url("img/angle-arrow-down.png");
-    background-image: url("img/angle-arrow-down.svg");
+    background-image: url(asset-path('img/angle-arrow-down.png'));
+    background-image: url(asset-path('img/angle-arrow-down.svg'));
     background-position: right 1.5rem top 44%;
   }
 }
 
 .usa-nav-primary button[aria-expanded=true] {
-  background-image: url("img/minus-alt.png");
-  background-image: url("img/minus-alt.svg");
+  background-image: url(asset-path('img/minus-alt.png'));
+  background-image: url(asset-path('img/minus-alt.svg'));
   background-repeat: no-repeat;
   background-position: right 0 center;
   background-size: 1rem;
@@ -3792,8 +3791,8 @@ fieldset {
   .usa-nav-primary button[aria-expanded=true] {
     background-color: #112e51;
     color: #ffffff;
-    background-image: url("img/angle-arrow-down-hover.png");
-    background-image: url("img/angle-arrow-down-hover.svg");
+    background-image: url(asset-path('img/angle-arrow-down-hover.png'));
+    background-image: url(asset-path('img/angle-arrow-down-hover.svg'));
     background-position: right 1.5rem top 44%;
   }
   .usa-nav-primary button[aria-expanded=true]:hover {
@@ -3994,8 +3993,8 @@ fieldset {
 
 @media screen and (min-width: 951px) {
   .usa-nav-secondary-links .usa-header-search-button {
-    background-image: url("img/search-alt.png");
-    background-image: url("img/search-alt.svg");
+    background-image: url(asset-path('img/search-alt.png'));
+    background-image: url(asset-path('img/search-alt.svg'));
     background-repeat: no-repeat;
     background-position: left center;
     background-size: 2.2rem;
@@ -4265,8 +4264,8 @@ fieldset {
 
 .usa-search [type="submit"],
 .usa-search .usa-search-submit {
-  background-image: url("img/search.png");
-  background-image: url("/img/search.svg");
+  background-image: url(asset-path('img/search.png'));
+  background-image: url(asset-path('img/search.svg'));
   background-position: 50%;
   background-repeat: no-repeat;
   border-bottom-left-radius: 0;
@@ -4317,8 +4316,8 @@ fieldset {
   }
   .usa-search.usa-search-small [type="submit"],
   .usa-search.usa-search-small .usa-search-submit {
-    background-image: url("img/search.png");
-    background-image: url("img/search.svg");
+    background-image: url(asset-path('img/search.png'));
+    background-image: url(asset-path('img/search.svg'));
     background-position: 50%;
     background-repeat: no-repeat;
     width: 4.5rem;
