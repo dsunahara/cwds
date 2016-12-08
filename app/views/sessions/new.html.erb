@@ -1,6 +1,6 @@
 <% provide(:title, "Log in") %>
 
-<main class="usa-grid usa-section usa-content usa-layout-docs" id="main-content">
+<main class="usa-grid usa-section" id="main-content">
 <h1>Log in</h1>
 
 <div class="row">
@@ -12,8 +12,19 @@
 
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
+      
+     
+       <%= f.check_box :remember_me %>
+      
+       <%= f.label :remember_me, class: "checkbox inline" do %>
+       <span>Remember me on this computer</span>
+        <% end %>
+     
+      
 
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+      
+
+      <%= f.submit "Log in", class: "btn btn-primary btn-block" %>
     <% end %>
 
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>

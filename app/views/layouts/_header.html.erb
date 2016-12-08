@@ -38,6 +38,7 @@
         <button class="usa-menu-btn">Menu</button>
         <div class="usa-logo" id="logo">
           <em class="usa-logo-text">
+            <%= image_tag("cwds_logo.png", :alt => "Logo image",  :size => "60" ) %>
             <a href="/" accesskey="1" title="Home" aria-label="Home">Child Welfare Digital Services</a>
             
           </em>
@@ -53,56 +54,71 @@
             <li>
               <button class="
               usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="side-nav-1">
-                <span>Section title</span>
+                <span>News</span>
               </button>
               <ul id="side-nav-1" class="usa-nav-submenu" aria-hidden="true">
                 <li>
-                  <a href="javascript:void(0);">Page title</a>
+                  
+                  <%= link_to 'CWDS News', news_url, :class => "usa-nav-link"  %>
                 </li>
                 <li>
-                  <a href="javascript:void(0);">Page title</a>
+                  <a href="javascript:void(0);">Service Bulletins</a>
                 </li>
                 <li>
-                  <a href="javascript:void(0);">Page title</a>
+                  <a href="javascript:void(0);">Event Calender</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Subscribe to SMS Alerts</a>
                 </li>
               </ul>
+            </li>
+            <li>
+              <%= link_to 'Digital Services Dashboard', "#", :class => "usa-nav-link"  %>
             </li>
             <li>
               <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="sidenav-2">
-                <span>Simple terms</span>
+                <span>Stakeholder Resources</span>
               </button>
               <ul id="sidenav-2" class="usa-nav-submenu">
                 <li>
-                  <a href="javascript:void(0);">Page title</a>
+                  <a href="javascript:void(0);">CWDS Sprint Reviews</a>
                 </li>
                 <li>
-                  <a href="javascript:void(0);">Page title</a>
+                  <a href="javascript:void(0);">FAQ</a>
                 </li>
                 <li>
-                  <a href="javascript:void(0);">Page title</a>
+                  <a href="javascript:void(0);">Project Glossary</a>
                 </li>
-              </ul>
+                <li>
+                  <a href="javascript:void(0);">Stakeholder Feedback</a>
+                </li>
+                </ul>
             </li>
-            <li>
-              <%= link_to 'News', news_url, :class => "usa-nav-link"  %>
-              
-              </a>
-            </li>
+            
             <li>
               <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="sidenav-3">
-                <span>More details in sub-menus</span>
+                <span>County Access</span>
               </button>
               <ul id="sidenav-3" class="usa-nav-submenu">
                 <li>
-                  <a href="javascript:void(0);">Page title</a>
+                  <a href="javascript:void(0);">Business Intelligence Portal</a>
                 </li>
                 <li>
-                  <a href="javascript:void(0);">Page title</a>
+                  <a href="javascript:void(0);">County Applications</a>
                 </li>
                 <li>
-                  <a href="javascript:void(0);">Page title</a>
+                  <a href="javascript:void(0);">County Contacts</a>
                 </li>
-              </ul>
+                <li>
+                  <a href="javascript:void(0);">Data Quality Portal</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Releases Information</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">Training Portal</a>
+                </li>
+                </ul>
             </li>
           </ul>
           <div class="usa-nav-secondary">
