@@ -96,3 +96,109 @@ aside {
   width: auto;
   margin-left: 0;
 }
+
+
+/*hover icons*/
+@mixin pulse ($n) {
+0%{transform: scaleX(1) scaleY(1);}
+@for $i from 1 through 9 {
+$m:1;
+@if $i % 2 !=0 {$m: $n;}
+#{$i*10%}{transform:scaleX($m) scaleY($m)}
+}
+100%{transform: scaleX(1) scaleY(1);}
+}
+
+
+@keyframes pulse {
+@include pulse(0.85);
+}
+
+div#heartwrap {
+    float: left;
+    margin-right: 1rem;
+    color: #0071bc;
+}
+#hearticon{
+  display: inline-block;
+  transform-origin: 50% 50%;
+  color:#f2f9fd;
+  bottom: 3px;
+}
+#heartwrap:hover > span > #hearticon {
+  animation: pulse 1500ms;
+   float: left;
+  
+}
+
+div#forumbee {
+    float: left;
+    margin-right: 1rem;
+    color: #0071bc;
+}
+#forumbeeicon{
+  display: inline-block;
+  transform-origin: 50% 50%;
+  color:#f2f9fd;
+  
+}
+#forumbee:hover > span > #forumbeeicon {
+  animation: pulse 1500ms;
+   float: left;
+  
+}
+
+div#university {
+    float: left;
+    margin-right: 1rem;
+    color: #0071bc;
+}
+#universityicon{
+  display: inline-block;
+  transform-origin: 50% 50%;
+  color:#f2f9fd;
+  left:3px;
+  bottom: 3px;
+}
+#university:hover > span > #universityicon {
+  animation: pulse 1500ms;
+   float: left;
+  
+}
+div#briefcase {
+    float: left;
+    margin-right: 1rem;
+    color: #0071bc;
+}
+#briefcaseicon{
+  display: inline-block;
+  transform-origin: 50% 50%;
+  color:#f2f9fd;
+  top: 3px;
+}
+#briefcase:hover > span > #briefcaseicon {
+  animation: pulse 1500ms;
+   float: left;
+  
+}
+
+
+
+
+
+/* News Page CSS*/
+hr {
+    border-top: 1px solid #1b1919;
+}
+
+
+
+
+
+
+
+
+
+
+
+

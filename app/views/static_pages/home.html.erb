@@ -5,7 +5,7 @@
       <section class="usa-hero">
         <div class="usa-grid">
           <div class="usa-hero-callout usa-section-dark">
-            <h2><span class="usa-hero-callout-alt">Want to see more?</span> Register to see sensitive information</h2>
+            <h2><span class="usa-hero-callout-alt">Want to see more?</span> Login or Register to see county access information</h2>
             <a class="usa-hero-link" href="#">Click here to see who can register</a>
             <%= link_to "Register here", signup_path, class: "usa-button usa-button-big usa-button-secondary" %>
           </div>
@@ -21,11 +21,17 @@
           <p>At the same time, in the context of the CWS – New System (CWS-NS) project, CWDS is developing a new technology platform and set of digital services that will be rolled out and trained incrementally over the next few years. These digital services will provide a more intuitive user experience and new capabilities not currently provided by the CWS/CMS, LIS, and FAS legacy systems.</p>
         </div>
       </section>
+   
       <section class="usa-section usa-section-dark usa-graphic_list">
         <div class="usa-grid usa-graphic_list-row">
           <div class="usa-width-one-half usa-media_block">
+            <div class='wrap' id='heartwrap'>
+              <span class="fa-stack fa-4x" >
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class='hi-icon fa fa-tachometer fa-stack-1x' id='hearticon'></i>
+              </span>
+            </div>  
             
-            <%= image_tag("img/circle-124.png", :alt => "Alt text", :class => "usa-media_block-img")%>
             <div class="usa-media_block-body">
               <h3>Digital Services Dashboard:</h3>
               <p>We have recently started to develop a digital services dashboard. The dashboard contains information related to the development efforts of CWDS including links to backlogs, source code, and other related documentation.</p>
@@ -33,7 +39,12 @@
           </div>
           <div class="usa-width-one-half usa-media_block">
             
-            <%= image_tag("img/circle-124.png", :alt => "Alt text", :class => "usa-media_block-img")%>
+            <div class='wrap' id='forumbee'>
+              <span class="fa-stack fa-4x" >
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class='hi-icon fa fa-forumbee fa-stack-1x' id='forumbeeicon'></i>
+              </span>
+            </div>  
             <div class="usa-media_block-body">
               <h3>CWDS Quarterly Stakeholder Forum:</h3>
               <p>CWDS has published our first quarterly stakeholder presentation. Click the link below to view the slide deck in PDF format. CWDS Quarterly Stakeholder Forum 2016/17 Q1</p>
@@ -42,14 +53,24 @@
         </div>
         <div class="usa-grid usa-graphic_list-row">
           <div class="usa-width-one-half usa-media_block">
-            <%= image_tag("img/circle-124.png", :alt => "Alt text", :class => "usa-media_block-img")%>
+            <div class='wrap' id='university'>
+              <span class="fa-stack fa-4x" >
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class='hi-icon fa fa-university fa-stack-1x' id='universityicon'></i>
+              </span>
+            </div>
             <div class="usa-media_block-body">
               <h3>Digital Design Standards</h3>
               <p>The CWDS Digital Service Standard ensures that digital teams build high quality digital services.</p>
             </div>
           </div>
           <div class="usa-width-one-half usa-media_block">
-            <%= image_tag("img/circle-124.png", :alt => "Alt text", :class => "usa-media_block-img")%>
+            <div class='wrap' id='briefcase'>
+              <span class="fa-stack fa-4x" >
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class='hi-icon fa fa-briefcase fa-stack-1x' id='briefcaseicon'></i>
+              </span>
+            </div>
             <div class="usa-media_block-body">
               <h3>CWDS Procurements</h3>
               <p>Child Welfare Digital Services (CWDS) has the following procurement opportunities and open contracts. The procurements listed below are subject to the requirements listed in the documentation for each.</p>
