@@ -4,4 +4,7 @@ class StaticPagesController < ApplicationController
 
   def news
   end
+  
+  def join_cwds
+  end
 end
