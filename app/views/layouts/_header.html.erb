@@ -53,77 +53,36 @@
           </button>
           <ul class="usa-nav-primary usa-accordion">
             <li>
-              <button class="
-              usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="side-nav-1">
-                <span>News</span>
-              </button>
-              <ul id="side-nav-1" class="usa-nav-submenu" aria-hidden="true">
-                <li>
-                  
-                  <%= link_to 'CWDS News', news_url, :class => "usa-nav-link"  %>
-                </li>
-                <li>
-                  <a href="javascript:void(0);">Service Bulletins</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0);">Event Calender</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0);">Subscribe to SMS Alerts</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <%= link_to 'Digital Services Dashboard', "#", :class => "usa-nav-link"  %>
+              <%= link_to 'News', news_url, :class => "usa-nav-link"  %>
             </li>
             <li>
               <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="sidenav-2">
-                <span>Stakeholder Resources</span>
+                <span>How We Operate</span>
               </button>
               <ul id="sidenav-2" class="usa-nav-submenu">
                 <li>
-                  <a href="javascript:void(0);">CWDS Sprint Reviews</a>
+                  <a href="javascript:void(0);">CWDS Github Website Standards</a>
                 </li>
                 <li>
-                  <a href="javascript:void(0);">FAQ</a>
+                  <a href="javascript:void(0);">Digital Service Design Standards</a>
                 </li>
                 <li>
-                  <a href="javascript:void(0);">Project Glossary</a>
+                  <a href="javascript:void(0);">Project Management</a>
                 </li>
                 <li>
-                  <a href="javascript:void(0);">Stakeholder Feedback</a>
+                  <a href="javascript:void(0);">Plan Template</a>
                 </li>
                 </ul>
             </li>
-            
             <li>
-              <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="sidenav-3">
-                <span>County Access</span>
-              </button>
-              <ul id="sidenav-3" class="usa-nav-submenu">
-                <li>
-                  <a href="javascript:void(0);">Business Intelligence Portal</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0);">County Applications</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0);">County Contacts</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0);">Data Quality Portal</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0);">Releases Information</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0);">Training Portal</a>
-                </li>
-                </ul>
+              <%= link_to 'Dashboard', dashboard_url, :class => "usa-nav-link"  %>
+            </li>
+            <li>
+              <%= link_to 'For Stakeholders', stakeholders_url, :class => "usa-nav-link"  %>
             </li>
             
             <li>
-              <%= link_to 'Join CWDS', join_cwds_url, :class => "usa-nav-link"  %>
+              <%= link_to 'For Vendors', vendors_url, :class => "usa-nav-link"  %>
             </li>
             
           </ul>
@@ -138,9 +97,9 @@
               </div>
             </form>
             <ul class="usa-unstyled-list usa-nav-secondary-links">
-              <li class="js-search-button-container">
-                <button class="usa-header-search-button js-search-button">Search</button>
-              </li>
+              <li>
+              <a href="http://www.hwcws.cahwnet.gov/">CWS/CMS Website</a>
+            </li>
               
               
                 
@@ -150,7 +109,7 @@
                   <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                   <li><%= link_to "Log out", logout_path, method: "delete" %></li>
                 <%else%>
-                  <li><%= link_to "Log in", login_path %></li>
+                  <li><%= link_to "Join CWDS", "join_cwds" %></li>
                   <%end%>
               
             </ul>
