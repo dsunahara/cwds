@@ -16,4 +16,5 @@ class StaticPagesController < ApplicationController
   
   def vendors
   end
+  
 end

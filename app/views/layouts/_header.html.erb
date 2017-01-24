@@ -109,7 +109,7 @@
                   <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                   <li><%= link_to "Log out", logout_path, method: "delete" %></li>
                 <%else%>
-                  <li><%= link_to "Join CWDS", "join_cwds" %></li>
+                  <li><%= link_to "Join CWDS", join_cwds_url %></li>
                   <%end%>
               
             </ul>
