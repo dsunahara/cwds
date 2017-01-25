@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get  '/vendors', to: 'static_pages#vendors'
   get  '/join_cwds', to: 'static_pages#join_cwds'
 
+
   get  '/project_management_plan', to: 'static_pages#project_management_plan'
   get  '/requirements_management_plan', to: 'static_pages#requirements_management_plan'
   get  '/risk_and_issue_plan', to: 'static_pages#risk_and_issue_plan'
@@ -26,6 +27,17 @@ Rails.application.routes.draw do
   get  '/digital_service_design_standards', to: 'static_pages#digital_service_design_standards'
   get  '/project_management', to: 'static_pages#project_management'
   get  '/plan_template', to: 'static_pages#plan_template'
+
+  get  '/vendors/ADPQ_accepted_vendors', to: 'static_pages#ADPQ_accepted_vendors'
+  get  '/vendors/ADPQ_vendor_pool_RFI_announcement', to: 'static_pages#ADPQ_vendor_pool_RFI_announcement'
+  get  '/vendors/CALS_contract_execution', to: 'static_pages#CALS_contract_execution'
+  get  '/vendors/API_contract_execution', to: 'static_pages#API_contract_execution'
+  get  '/vendors/Intake_contract_execution', to: 'static_pages#Intake_contract_execution.html'
+  get  '/vendors/Intake_Implementation_bidders_conference', to: 'static_pages#Intake_Implementation_bidders_conference'
+  get  '/dashboard/CALS', to: 'static_pages#CALS'
+  get  '/dashboard/API', to: 'static_pages#API'
+  get  '/dashboard/Intake', to: 'static_pages#Intake'
+
   
   
  resources :users
