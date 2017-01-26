@@ -1,20 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
   end
-
-  def news
-  end
   
-  def how_we_operate
+  def Intake
   end
-  
-  def dashboard
-  end
-  
-  def stakeholders
-  end
-  
-  def vendors
-  end
-  
 end

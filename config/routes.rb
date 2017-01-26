@@ -34,11 +34,17 @@ Rails.application.routes.draw do
   get  '/vendors/API_contract_execution', to: 'static_pages#API_contract_execution'
   get  '/vendors/Intake_contract_execution', to: 'static_pages#Intake_contract_execution.html'
   get  '/vendors/Intake_Implementation_bidders_conference', to: 'static_pages#Intake_Implementation_bidders_conference'
+
   get  '/dashboard/CALS', to: 'static_pages#CALS'
   get  '/dashboard/API', to: 'static_pages#API'
   get  '/dashboard/Intake', to: 'static_pages#Intake'
-
   
+  get  '/stakeholders/FAQ', to: 'static_pages#FAQ'
+  get  '/stakeholders/stakeholder_feedback', to: 'static_pages#stakeholder_feedback'
+  get  '/stakeholders/sprint_reviews', to: 'static_pages#sprint_reviews'
+  get  '/stakeholders/legislative_reports', to: 'static_pages#legislative_reports'
+  get  '/stakeholders/monthly_reports', to: 'static_pages#monthly_reports'
+  get  '/stakeholders/quarterly_stakeholder_forums', to: 'static_pages#quarterly_stakeholder_forums'
   
  resources :users
  resources :account_activations, only: [:edit]
