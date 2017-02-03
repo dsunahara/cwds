@@ -45,7 +45,9 @@ Rails.application.routes.draw do
   get  '/stakeholders/legislative_reports', to: 'static_pages#legislative_reports'
   get  '/stakeholders/monthly_reports', to: 'static_pages#monthly_reports'
   get  '/stakeholders/quarterly_stakeholder_forums', to: 'static_pages#quarterly_stakeholder_forums'
-  
+  get  '/stakeholders/quarterly_stakeholder_forums/qsf_materials_20170110', to: 'static_pages#qsf_materials_20170110'
+  get  '/stakeholders/quarterly_stakeholder_forums/qsf_agenda_20170110', to: 'static_pages#qsf_agenda_20170110'
+
  resources :users
  resources :account_activations, only: [:edit]
   
