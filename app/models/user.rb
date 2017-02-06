@@ -1,9 +1,9 @@
 #user data model
 # name:string, email: string, created_at: datetime, updated_at:datetime, password_digest: string, remember_digest: string, 
-# id:integer, admin: boolean, activation_digest:string, activated:bool, activated_at:datetime
+# id:integer, admin: boolean, activation_digest:string, activated:bool, activated_at:datetime, reset_digest:string, reset_sent_at:datetime
 
 class User < ApplicationRecord
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :reset_token
   self.per_page = 15
   
   before_save   :downcase_email
@@ -58,6 +58,31 @@ class User < ApplicationRecord
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
   end
+  
+  
+  #Create  a password reset digest and save it to DB
+  def create_reset_digest
+    self.reset_token = User.new_token
+    
+    #refactor code to one line using update_column
+    #update_attribute(:reset_digest,  User.digest(reset_token))
+    #update_attribute(:reset_sent_at, Time.zone.now)
+    update_columns(reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now)
+  end
+  
+   # Sends password reset email.
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+  
+   # Returns true if a password reset has expired.
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
+  
+  
+  
+  
   
   private
     #convert emails to all lower-case
