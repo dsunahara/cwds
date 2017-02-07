@@ -825,6 +825,39 @@ button,
   width: 100%;
 }
 
+.usa-button-dashboard,
+.usa-button-dashboard-primary,
+.usa-button-dashboard:visited,
+button-dashboard,
+[type="button"],
+[type="submit"],
+[type="reset"],
+[type="image"] {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #93bcff;
+  border: 0;
+  border-radius: 0.3rem;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1;
+  outline: none;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+}
+
 @media screen and (min-width: 481px) {
   .usa-button,
   .usa-button-primary,
