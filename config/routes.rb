@@ -68,8 +68,8 @@ Rails.application.routes.draw do
     
   end
   
-  #check and exclude all pages where slug is empty
-  Page.where.not(slug: nil).all.each do |page|
+  #check and exclude all pages where slug is emptyid: params[:id]
+  Page.where.not(slug: '').all.each do |page|
     get "/#{page.slug}", controller: "pages", action:"show", id:page.id 
   end
   
