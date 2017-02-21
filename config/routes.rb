@@ -2,16 +2,7 @@ Rails.application.routes.draw do
   
   
   
-  resources :pages, only: [:show]
-  namespace :admin do 
-    resources :pages  # admin/pages 
-    
-  end
   
-  #check and exclude all pages where slug is empty
-  Page.where.not(slug: nil).all.each do |page|
-    get "/#{page.slug}", controller: "pages", action:"show", id:page.id 
-  end
   
   
   get 'password_resets/new'
@@ -70,6 +61,17 @@ Rails.application.routes.draw do
  resources :users
  resources :account_activations, only: [:edit]
  resources :password_resets,     only: [:new, :create, :edit, :update]
+ 
+ resources :pages, only: [:show]
+  namespace :admin do 
+    resources :pages  # admin/pages 
+    
+  end
+  
+  #check and exclude all pages where slug is empty
+  Page.where.not(slug: nil).all.each do |page|
+    get "/#{page.slug}", controller: "pages", action:"show", id:page.id 
+  end
   
 end
 
