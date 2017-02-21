@@ -1,4 +1,4 @@
-## Testing US Digital standard with rails, implement basic user login and email notification system for prototype
+## 2/21/2017 : added paged CRUD fucntins, this will server as a stable branch for adding ckeditor next.
 
 To get started with the app, clone the repo and then install the needed gems:
 
