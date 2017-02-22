@@ -33,6 +33,8 @@ module Admin
         if @page.save
           format.html { redirect_to admin_page_path(@page), notice: 'Page was successfully created.' }
           format.json { render :show, status: :created, location: @page }
+          #reload the routes if page was successfully created.
+          Rails.application.reload_routes!
         else
           format.html { render :new }
           format.json { render json: @page.errors, status: :unprocessable_entity }
