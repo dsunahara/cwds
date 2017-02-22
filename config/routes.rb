@@ -6,6 +6,25 @@ Rails.application.routes.draw do
   
   
   mount Ckeditor::Engine => '/ckeditor'
+  resources :users
+  resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
+ 
+  resources :pages, only: [:show]
+  namespace :admin do 
+    resources :pages  # admin/pages 
+  end
+  
+  #check and exclude all pages where slug is emptyid: params[:id]
+  Page.where.not(slug: '').all.each do |page|
+    get "/#{page.slug}", controller: "pages", action:"show", id:page.id 
+  end
+  
+  
+  
+  
+  
+  
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -59,20 +78,7 @@ Rails.application.routes.draw do
   get  '/stakeholders/quarterly_stakeholder_forums/qsf_materials_20170110', to: 'static_pages#qsf_materials_20170110'
   get  '/stakeholders/quarterly_stakeholder_forums/qsf_agenda_20170110', to: 'static_pages#qsf_agenda_20170110'
 
- resources :users
- resources :account_activations, only: [:edit]
- resources :password_resets,     only: [:new, :create, :edit, :update]
  
- resources :pages, only: [:show]
-  namespace :admin do 
-    resources :pages  # admin/pages 
-    
-  end
-  
-  #check and exclude all pages where slug is emptyid: params[:id]
-  Page.where.not(slug: '').all.each do |page|
-    get "/#{page.slug}", controller: "pages", action:"show", id:page.id 
-  end
   
 end
 
