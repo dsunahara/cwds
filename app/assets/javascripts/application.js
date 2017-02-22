@@ -12,7 +12,7 @@
 //
 
 //= require jquery
-
+//= require ckeditor/init
 //= require jquery_ujs
 
 //= require uswds
