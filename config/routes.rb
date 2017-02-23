@@ -9,22 +9,17 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
- 
+  
   resources :pages, only: [:show]
   namespace :admin do 
     resources :pages  # admin/pages 
   end
   
-  #check and exclude all pages where slug is emptyid: params[:id]
-  Page.where.not(slug: '').all.each do |page|
-    get "/#{page.slug}", controller: "pages", action:"show", id:page.id 
-  end
   
   
+
   
-  
-  
-  
+  get '/test-12', to: 'pages#show', id: '6'
   
   get 'password_resets/new'
 
@@ -35,11 +30,13 @@ Rails.application.routes.draw do
   get 'users/new'
 
   root 'static_pages#home'
+  
 
   get  '/signup', to: 'users#new'
   get  '/login', to: 'sessions#new'
   post  '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+ 
   get  '/about_cwds', to: 'static_pages#about_cwds'
   get  '/news', to: 'static_pages#news'
   get  '/how_we_operate', to: 'static_pages#how_we_operate'
@@ -78,6 +75,14 @@ Rails.application.routes.draw do
   get  '/stakeholders/quarterly_stakeholder_forums', to: 'static_pages#quarterly_stakeholder_forums'
   get  '/stakeholders/quarterly_stakeholder_forums/qsf_materials_20170110', to: 'static_pages#qsf_materials_20170110'
   get  '/stakeholders/quarterly_stakeholder_forums/qsf_agenda_20170110', to: 'static_pages#qsf_agenda_20170110'
+
+    #check and exclude all pages where slug is emptyid: params[:id]
+  Page.all.each do |page|
+    #get "/#{page.slug}", controller: "pages", action:"show", id:page.id
+    #get "/:slug" => "pages#show"
+    
+    get "/#{page.slug}", to: 'pages#show', id:page.id
+  end
 
  
   
