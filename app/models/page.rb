@@ -3,7 +3,7 @@ class Page < ApplicationRecord
     
     #reload routes when active record is saved
     def reload_routes
-        puts "testing reload2"
+        
         CwdsApp::Application.routes_reloader.reload!
     
     end
