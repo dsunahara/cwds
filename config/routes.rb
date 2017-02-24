@@ -16,11 +16,6 @@ Rails.application.routes.draw do
   end
   
   
-  
-
-  
-  get '/test-12', to: 'pages#show', id: '6'
-  
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -76,13 +71,8 @@ Rails.application.routes.draw do
   get  '/stakeholders/quarterly_stakeholder_forums/qsf_materials_20170110', to: 'static_pages#qsf_materials_20170110'
   get  '/stakeholders/quarterly_stakeholder_forums/qsf_agenda_20170110', to: 'static_pages#qsf_agenda_20170110'
 
-    #check and exclude all pages where slug is emptyid: params[:id]
-  Page.all.each do |page|
-    #get "/#{page.slug}", controller: "pages", action:"show", id:page.id
-    #get "/:slug" => "pages#show"
-    
-    get "/#{page.slug}", to: 'pages#show', id:page.id
-  end
+   
+  resources :pages, path: ''
 
  
   
