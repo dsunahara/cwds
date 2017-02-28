@@ -1,40 +1,7 @@
 <header class="usa-header usa-header-extended" role="banner">
-      <!-- Gov banner BEGIN -->
-      <div class="usa-banner">
-        <div class="usa-accordion">
-          <header class="usa-banner-header">
-            <div class="usa-grid usa-banner-inner">
-            
-            <%= image_tag("img/favicons/favicon-57.png", :alt => "U.S. Flag") %>
-            <p>This site is currently under development</p>
-            <button class="usa-accordion-button usa-banner-button"
-              aria-expanded="false" aria-controls="gov-banner">
-              <span class="usa-banner-button-text">Find out more here</span>
-            </button>
-            </div>
-          </header>
-          <div class="usa-banner-content usa-grid usa-accordion-content" id="gov-banner">
-            <div class="usa-banner-guidance-gov usa-width-one-half">
-              <%= image_tag("img/icon-dot-gov.svg", :alt => "Dot gov", :class => "usa-banner-icon usa-media_block-img") %>
-              <div class="usa-media_block-body">
-                <p>
-                  <strong>Reporting a bug.</strong>
-                  <br>
-                  If you find bugs or compatabiity issues with this site, contact the CWDS Web Team @ cwsweb03@osi.ca.gov
-                </p>
-              </div>
-            </div>
-            <div class="usa-banner-guidance-ssl usa-width-one-half">
-              <%= image_tag("img/icon-https.svg", :alt => "SSL", :class => "usa-banner-icon usa-media_block-img") %>
-              <div class="usa-media_block-body">
-               
-                <p>This site is currently under development, please contact andy.leung@osi.ca.gov for questions or feedbacks. Alternatively, you can view upcoming functionality the web team is working on by viewing the <a href="https://cwscms.osi.ca.gov/New-System/Stakeholder-Feedback-Form">user stories</a> in Pivotal Tracker</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Gov banner END -->
+      
+      <%= render 'layouts/usaBanner' %>
+      
       <div class="usa-navbar">
         <button class="usa-menu-btn">Menu</button>
         <div class="usa-logo" id="logo">
@@ -103,14 +70,7 @@
               
               
                 
-                <% if logged_in? %>
-                  <li><%= link_to "Users", users_path %></li>
-                  <li><%= link_to "Profile", user_path(current_user) %></li>
-                  <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-                  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-                <%else%>
-                  <li><%= link_to "Join CWDS", join_cwds_url %></li>
-                  <%end%>
+                
               
             </ul>
           </div>
