@@ -17,7 +17,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create page" do
     assert_difference('Page.count') do
-      post pages_url, params: { page: { body: @page.body, slug: @page.slug, title: @page.title } }
+      post admin_pages_url, params: { page: { body: @page.body, slug: @page.slug, title: @page.title } }
     end
 
     assert_redirected_to page_url(Page.last)
@@ -29,8 +29,9 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
-    get edit_page_url(@page)
-    assert_response :success
+    get edit_admin_page_url(@page)
+    #assert_response :success
+    assert_redirected_to "/login"
   end
 
   test "should update page" do

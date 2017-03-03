@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222000626) do
+ActiveRecord::Schema.define(version: 20170301222810) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170222000626) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.string   "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
