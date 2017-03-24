@@ -1,0 +1,25 @@
+<main class="usa-grid usa-section" id="main-content">
+ <%= form_for(["admin", @role]) do |f| %>
+ 
+  <h2>Add a new Role to <%=@user.name %></h2>
+  
+  <p>
+   <h3>Existing Roles:</h3>
+   <% @roles.each do |r| %>
+      <br><%= r.name %> 
+    <%end%>
+  </p>
+  
+  <p> 
+   <h3>Add a new role:</h3>
+   <select name="role_name">
+    <option value="Site Admin">Site Admin</option>
+     <option value="Registered User">Registered User</option>
+     <option value="News Editor">News Editor</option>
+     <option value="Content Editor">Content Editor</option>
+   </select> 
+   <%= f.hidden_field :user_id, value: @user.id %>
+   <%= f.submit %>
+  </p>
+ <%end%>
+</main>

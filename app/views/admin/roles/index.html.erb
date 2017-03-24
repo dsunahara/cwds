@@ -1,0 +1,29 @@
+<main class="usa-grid usa-section" id="main-content">
+<h2>Pick a User to see their Roles</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>User Name</th>
+      <th>User Email</th>
+      <th>User Created Date</th>
+      <th>Delete a role</th>
+      <th>Add a role</th>
+    </tr>
+  </thead>
+
+<tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.created_at %></td>
+        <td><%= link_to 'Delete Row', admin_role_path(user) %></td>
+        <td><%= link_to 'Add Role', new_admin_role_path(:user_id => user.id)%></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</main>

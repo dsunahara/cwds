@@ -1,0 +1,14 @@
+<main class="usa-grid usa-section" id="main-content">
+
+  <h2>Existing Roles</h2>
+  <h3>The Current Roles you belong to:</h3>  
+  <% @roles.each do |r| %>
+    <li><%= r.name %>  <%= link_to 'Delete', admin_role_path(:role_id => r.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  <%end%>
+
+</main>    
+    
+  
+ 
+  
+  

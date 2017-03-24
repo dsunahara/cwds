@@ -63,5 +63,13 @@ module SessionsHelper
   end
   
   
+  #check and see if the role provided exist with this user
+  def check_role?(role)
+    #roles.any? { |r| r.name.underscore.to_sym == role }
+    !!current_user.roles.any? {|r| r.name  == role}
+   
+  end
+  
+  
   
 end

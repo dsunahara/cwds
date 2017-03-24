@@ -56,16 +56,24 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
   
-  #confirms admin user
+  #confirms Super admin user
   def admin_user
     redirect_to(root_url) unless current_user.admin?
   end
+  
+  #confirm if user is a regular admin user (site admin has less access than Super Admin)
+  def site_admin
+  end
+  
+ 
+  
+  
   
   
   private
   
     def user_params
-      params.require(:user).permit(:name, :last_name, :email,:password,:password_confirmation)
+      params.require(:user).permit(:name, :last_name, :email,:password,:password_confirmation, roles_attributes:[:name])
     end
     
     #Before filters

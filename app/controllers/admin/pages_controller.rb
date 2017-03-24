@@ -3,6 +3,7 @@ module Admin
   class PagesController < ApplicationController
     before_action :set_page, only: [:show, :edit, :update, :destroy]
     before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+    before_action :admin_user, only: [:show, :edit, :update, :destroy, :index]
   
     # GET /pages
     # GET /pages.json
@@ -75,6 +76,11 @@ module Admin
       # Never trust parameters from the scary internet, only allow the white list through.
       def page_params
         params.require(:page).permit(:title, :body, :slug, :category_id)
+      end
+      
+      #confirms admin user
+      def admin_user
+        redirect_to(root_url) unless current_user.admin?
       end
       
       #confirms a logged-in user.
