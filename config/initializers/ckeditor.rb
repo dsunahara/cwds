@@ -55,4 +55,8 @@ Ckeditor.setup do |config|
   # Used when CKEditor CDN enabled
   # By default: "ckeditor/config.js"
   # config.js_config_url = 'ckeditor/config.js'
+  
+  config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+  config.assets.precompile += Ckeditor.assets
+  config.assets.precompile += %w(ckeditor/*)
 end
