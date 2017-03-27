@@ -3,7 +3,8 @@ module Admin
   class PagesController < ApplicationController
     before_action :set_page, only: [:show, :edit, :update, :destroy]
     before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-    before_action :admin_user, only: [:show, :edit, :update, :destroy, :index]
+    #before_action :admin_user, only: [:show, :edit, :update, :destroy, :index]
+    before_action :check_role, only: [:show, :edit, :update, :destroy, :index]
   
     # GET /pages
     # GET /pages.json
@@ -82,6 +83,11 @@ module Admin
       def admin_user
         redirect_to(root_url) unless current_user.admin?
       end
+      
+      #check and make sure it user is site admin before giving access 
+        def check_role
+          redirect_to(root_url) unless check_role?("Content Editor") or check_role?("Site Admin")
+        end
       
       #confirms a logged-in user.
       def logged_in_user

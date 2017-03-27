@@ -101,8 +101,6 @@ class RolesController < ApplicationController
           end
         end 
         
-        
-  
       end#end of private 
 
 end
