@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
   
-  
-  
-  
-  
-  
   mount Ckeditor::Engine => '/ckeditor'
   
   resources :users
@@ -15,6 +10,7 @@ Rails.application.routes.draw do
     resources :pages  # admin/pages 
     resources :roles, only: [:new, :create, :destroy, :index, :show]# admin/roles
   end
+  resources :posts  
   
   
   get 'password_resets/new'
