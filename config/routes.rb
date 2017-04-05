@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   post  '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
  
-  get  '/about_cwds', to: 'static_pages#about_cwds'
   get  '/news', to: 'static_pages#news'
   get  '/how_we_operate', to: 'static_pages#how_we_operate'
   get  '/dashboard', to: 'static_pages#dashboard'
