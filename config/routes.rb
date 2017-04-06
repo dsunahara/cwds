@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   get  '/news', to: 'static_pages#news'
   get  '/how_we_operate', to: 'static_pages#how_we_operate'
   get  '/dashboard', to: 'static_pages#dashboard'
-  get  '/stakeholders', to: 'static_pages#stakeholders'
+
   get  '/vendors', to: 'static_pages#vendors'
   get  '/join_cwds', to: 'static_pages#join_cwds'
 
