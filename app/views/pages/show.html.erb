@@ -2,21 +2,13 @@
 
 <main class="usa-grid usa-section" id="main-content">
   
-  <p> Last updated @ <%= time_ago_in_words @page.created_at%> ago</p>
+  <h2 id="cwds-digital-service-development-standards"><%= @page.title %></h2>
   
   <p>
-    <%= @page.title %>
+    <%= raw @page.body %>
   </p>
   
-  <p>
-    
-    <%= simple_format(@page.body) %>
-  </p>
-  
-  <%#<p>
-    <strong>Slug:</strong>
-    <%= @page.slug %>
-  </p>
+
   
   <%# <%= link_to 'Edit', edit_admin_page_path(@page) %>
   <%# <%= link_to 'Back', admin_pages_path %>

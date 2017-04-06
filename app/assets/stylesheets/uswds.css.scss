@@ -26,6 +26,7 @@ html {
  */
 body {
   margin: 0;
+//  min-width: 330px;
 }
 
 /* HTML5 display definitions
@@ -2176,7 +2177,7 @@ dfn {
   font-weight: 700;
   margin: 0;
   padding: 1.5rem 5.5rem 1.5rem 3rem;
-  width: 100%;
+  //width: 100%;
 }
 
 .usa-accordion-button:hover {
@@ -2363,7 +2364,16 @@ dfn {
   padding-bottom: 0.55rem;
   font-size: 1.2rem;
   font-weight: 400;
+  
 }
+
+//Justin added
+@media screen and (max-width: 275px) {
+  .usa-banner-header {
+    font-size: .7rem;
+  }
+}
+
 
 @media screen and (min-width: 481px) {
   .usa-banner-header {
@@ -2403,16 +2413,24 @@ dfn {
 }
 
 .usa-banner-header-expanded {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-bottom: 1px solid #aeb0b5;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 1.5rem;
-  min-height: 5.6rem;
-  padding-right: 3rem;
+  //-webkit-box-align: center;
+  //-ms-flex-align: center;
+  //align-items: center;
+  //border-bottom: 1px solid #aeb0b5;
+  //display: -webkit-box;
+  //display: -ms-flexbox;
+  //display: flex;
+ 
+  font-size: 1.1rem;
+  //min-height: 5.6rem;
+  //padding-right: 3rem;
+}
+//Justin added
+@media screen and (max-width: 250px) {
+  .usa-banner-header-expanded {
+    font-size: .8rem;
+   padding-left: -10px;
+  }
 }
 
 @media screen and (min-width: 481px) {
@@ -2474,12 +2492,19 @@ dfn {
   color: #0071bc;
   display: block;
   font-size: 1.2rem;
-  height: 4.3rem;
+  //height: 4.3rem;
   left: 0;
   position: absolute;
   text-decoration: underline;
   top: 0;
-  width: 100%;
+  //width: 100%;
+}
+
+@media screen and (max-width: 481px) {
+  .usa-banner-button {
+    height: 4.3rem;
+    width: 100%;
+  }
 }
 
 .usa-banner-button:hover {
@@ -3921,7 +3946,6 @@ fieldset {
     margin-right: auto;
     padding-right: 3rem;
     padding-left: 2rem;
-    margin-top: -1px;
     max-width: 1040px;
     position: relative;
   }
@@ -4472,3 +4496,7 @@ fieldset {
     font-weight: 700;
     margin-bottom: .4rem;
     padding: .7rem 2rem; }
+    
+  .usa-color-gray-lighter {
+    background-color: #d6d7d9;
+  }
