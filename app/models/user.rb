@@ -58,6 +58,7 @@ class User < ApplicationRecord
     #update_attribute(:activated_at, Time.zone.now)
     #using update_columns, you can update mulitple fields with one hit to the database
     update_columns(activated: true, activated_at: Time.zone.now)
+    self.roles << Role.new(name: "Registered User")
   end
 
   # Sends activation email.
@@ -74,6 +75,7 @@ class User < ApplicationRecord
     #update_attribute(:reset_digest,  User.digest(reset_token))
     #update_attribute(:reset_sent_at, Time.zone.now)
     update_columns(reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now)
+    
   end
   
    # Sends password reset email.

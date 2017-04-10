@@ -1,7 +1,7 @@
 class Page < ApplicationRecord
     
   def to_param
-    slug
+   slug
   end
     
 end

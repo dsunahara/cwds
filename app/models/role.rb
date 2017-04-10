@@ -1,6 +1,6 @@
 class Role < ApplicationRecord
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   has_many :assignments, :dependent => :destroy
   has_many :users, through: :assignments
   

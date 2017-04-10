@@ -38,6 +38,7 @@ class UsersController < ApplicationController
   end
   
   def edit
+    @roles = Role.joins(:assignments).where('assignments.user_id = ?', @user.id)
   end
   
   def update

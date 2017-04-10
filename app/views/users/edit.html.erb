@@ -5,6 +5,12 @@
   <h1>Update your profile</h1>
     
     <%= render 'form'%>
+    <label>Your Existing Role(s)</label>
+    <ul>
+      <% @roles.each do |role| %>
+         <li><%=role.name%></li>
+      <%end%>  
+    </ul>
 
     <div class="gravatar_edit">
       <%= gravatar_for @user %>

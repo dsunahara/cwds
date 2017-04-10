@@ -7,10 +7,16 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :pages, only: [:show]
   namespace :admin do 
-    resources :pages  # admin/pages 
+    resources :pages
+    #scope format: false do
+    #get '/pages', to: 'pages#index'
+    #get '/pages/*slug', to: 'pages#show'
+    #end
+    
     resources :roles, only: [:new, :create, :destroy, :index, :show]# admin/roles
   end
   resources :posts  
+  
   
   
   get 'password_resets/new'
@@ -25,7 +31,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   
   
-  get '/role', to: 'roles#show'
+  
   get  '/signup', to: 'users#new'
   get  '/login', to: 'sessions#new'
   post  '/login', to: 'sessions#create'
