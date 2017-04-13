@@ -29,7 +29,7 @@ Rails.application.configure do
   # Do care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :test
-  host = 'https://rails-tutorial-acatmpf.c9users.io' # Cloud IDE
+  host = 'https://cwds-staging.herokuapp.com' # Change it to staging or production dependent on environment 
   config.action_mailer.default_url_options = { host: host, protocol: 'https' }
   config.action_mailer.perform_caching = false
 
