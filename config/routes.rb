@@ -8,11 +8,6 @@ Rails.application.routes.draw do
   resources :pages, only: [:show]
   namespace :admin do 
     resources :pages
-    #scope format: false do
-    #get '/pages', to: 'pages#index'
-    #get '/pages/*slug', to: 'pages#show'
-    #end
-    
     resources :roles, only: [:new, :create, :destroy, :index, :show]# admin/roles
   end
   resources :posts  
