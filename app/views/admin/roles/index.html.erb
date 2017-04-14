@@ -18,7 +18,7 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.created_at %></td>
-        <td><%= link_to 'Delete Row', admin_role_path(user) %></td>
+        <td><%= link_to 'Delete Role', admin_role_path(user) %></td>
         <td><%= link_to 'Add Role', new_admin_role_path(:user_id => user.id)%></td>
         
       </tr>
