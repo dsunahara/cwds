@@ -3,6 +3,19 @@ class Post < ApplicationRecord
   validates :body, presence: true
   has_many :taggings, :dependent => :delete_all
   has_many :tags, through: :taggings
+  has_many :categorize, :dependent => :delete_all
+  has_many :categories, through: :categorize
+  
+  
+  def all_categories=(names)
+    self.categories = names.split(",").map do |name|
+        Category.where(name: name.strip).first_or_create!
+    end
+  end
+  
+  def all_categories
+    self.categories.map(&:name).join(", ")
+  end
   
   
   def all_tags=(names)

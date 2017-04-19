@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :posts  
   
   get 'tags/:tag', to: 'posts#index', as: "tag"
+  get 'categories/:category', to: 'posts#index', as: "category"
   
   get 'password_resets/new'
 

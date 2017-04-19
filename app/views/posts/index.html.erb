@@ -4,6 +4,11 @@
   <div class="post_wrapper">
     <h2 class="title"><%= link_to post.title, post%></h2>
     <p><%= post.created_at.strftime("%B, %d, %Y")%></p>
+    
+    <div><%= post.body%></div>
+    <div class ="categories">
+      <%=raw category_links(post.all_categories)%>
+    </div>
     <div class="tags">
       <%=raw tag_links(post.all_tags)%>
     </div>
