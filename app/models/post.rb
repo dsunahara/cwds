@@ -19,7 +19,6 @@ class Post < ApplicationRecord
   
   
   def all_tags=(names)
-    puts "testing 1234"
     self.tags = names.split(",").map do |name|
         Tag.where(name: name.strip).first_or_create!
     end
