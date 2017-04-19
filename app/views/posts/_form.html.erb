@@ -10,13 +10,18 @@
     </div>
   <%end%>
   <p>
-    <%= f.label :title %> 
+    <%= f.label :title %>  
     <%= f.text_field :title %> 
   </p>
   <p>
     <%= f.label :body %>
     <%= f.text_area :body %>
   </p>
+  
+  <p>
+    <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
+  </p>
+  
   <p>
     <%= f.submit %>  
   </p>

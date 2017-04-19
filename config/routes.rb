@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   resources :posts  
   
-  
+  get 'tags/:tag', to: 'posts#index', as: "tag"
   
   get 'password_resets/new'
 
