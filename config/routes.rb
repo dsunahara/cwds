@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :admin do 
     resources :pages
     resources :roles, only: [:new, :create, :destroy, :index, :show]# admin/roles
+    resources :posts
   end
   resources :posts  
   
