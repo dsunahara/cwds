@@ -3,6 +3,10 @@ class PostsController < ApplicationController
   def index
     if params[:tag]
      @posts = Post.tagged_with(params[:tag]).order('created_at DESC')
+     @title = params[:tag].titleize
+    elsif params[:category]
+      @posts = Post.categorized_with(params[:category]).order('created_at DESC')
+      @title = params[:category].titleize
     else
      @posts = Post.all.order('created_at DESC')
     end

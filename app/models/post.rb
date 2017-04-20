@@ -32,4 +32,8 @@ class Post < ApplicationRecord
     Tag.find_by_name!(name).posts
   end
   
+  def self.categorized_with(name)
+    Category.find_by_name!(name).posts
+  end
+  
 end
