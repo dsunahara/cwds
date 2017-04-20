@@ -9,7 +9,7 @@ module Admin
     # GET /pages
     # GET /pages.json
     def index
-      @pages = Page.all
+      @pages = Page.order("title").all
     end
   
     # GET /pages/1

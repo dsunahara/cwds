@@ -1,17 +1,27 @@
-<h1>this is the index for post index view</h1>
-
-<% @posts.each do |post| %>
-  <div class="post_wrapper">
-    <h2 class="title"><%= link_to post.title, post%></h2>
-    <p><%= post.created_at.strftime("%B, %d, %Y")%></p>
+<main class="usa-grid usa-section" id="main-content">
+  <div class="usa-width-two-thirds">
+    <h2>Follow Our Progress</h2>
     
-    <div><%=raw post.body%></div>
-    <div class ="categories">
-      <%=raw category_links(post.all_categories)%>
-    </div>
-    <div class="tags">
-      <%=raw tag_links(post.all_tags)%>
-    </div>
+    <% @posts.each do |post| %>
+      <div class="post_wrapper">
+        <h2 class="post-title"><%= link_to post.title, post%></h2>
+        
+        <div class="entry-meta">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <span class="date"><%= post.created_at.strftime("%B, %d, %Y")%></span>
+        </div>
+        
+        <div><%=raw post.body%></div>
+        
+        <div class="cat-tags">
+          <i class="fa fa-folder-open" aria-hidden="true"></i>
+          <span class="category"><%=raw category_links(post.all_categories)%></span>
+          <i class="fa fa-tag" aria-hidden="true"></i>
+          <span class="tag"><%=raw tag_links(post.all_tags)%></span>
+        </div>
+        
+      </div>
+      
+    <%end%>
   </div>
-  
-<%end%>
+</main>

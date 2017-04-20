@@ -1,13 +1,30 @@
-<h1> 
-  <%= @post.title %>
-</h1>
 
-<p>
-   Submitted <%= time_ago_in_words(@post.created_at) %> ago 
-   | <%= link_to 'Edit', edit_post_path(@post) %>
-   | <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
-</p>
+<main class="usa-grid usa-section" id="main-content">
+   <div class="usa-width-two-thirds">
+      <h1> 
+        <%= @post.title %>
+      </h1>
+      
+      <div class="entry-meta">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        <span class="date"><%= @post.created_at.strftime("%B, %d, %Y")%></span>
+      </div>
+        
+      <p class="body"> 
+        <%=raw @post.body %>
+      </p>
+      
+      <div class="cat-tags">
+          <i class="fa fa-folder-open" aria-hidden="true"></i>
+          <span class="category"><%=raw category_links(@post.all_categories)%></span>
+          <i class="fa fa-tag" aria-hidden="true"></i>
+          <span class="tag"><%=raw tag_links(@post.all_tags)%></span>
+      </div>
+      
+      <p>
+         <%= link_to 'Edit', edit_post_path(@post) %>
+         | <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
+      </p>
+   </div>
+</main>
 
-<p class="body"> 
-  <%=raw @post.body %>
-</p>
