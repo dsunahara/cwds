@@ -1,3 +1,49 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-title {
+    margin-bottom: 0;
+    
+  a:link, a:visited, a:active {
+    color: #000;
+    text-decoration: none;
+  } 
+  
+  a:hover {
+    color: #337ab7;
+  }
+}
+
+.entry-meta {
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  padding-bottom: 10px;
+  padding-top: 8px;
+  margin-bottom: 2em;
+  font-size: .713em;
+  
+  .date {
+    color: #2C3E8A;
+    padding: 0 0 0 8px;
+  }
+}
+
+.cat-tags {
+  padding-top: 10px;
+  font-size: .713em;
+  
+  a:link, a:visited, a:active {
+    color: #2C3E8A;
+    text-decoration: none;
+  } 
+  
+  a:hover {
+    color: #337ab7;
+  }
+  
+  .category {
+    padding: 0 15px 0 0;
+  }
+  
+}
