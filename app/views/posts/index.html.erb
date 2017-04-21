@@ -1,7 +1,9 @@
 <main class="usa-grid usa-section" id="main-content">
   <div class="usa-width-two-thirds">
     
+    <% if @title.present?%>
     <h2><%= @title %></h2>
+    <%end%>
     
     <% @posts.each do |post| %>
       <div class="post_wrapper">
@@ -26,10 +28,18 @@
     <%end%>
   </div>
   <div class = "usa-width-one-third">
-    <h4>Popular Tags:</h4>
+    <h4><i class="fa fa-tag" aria-hidden="true"></i> POPULAR TAGS</h4>
     <% tag_cloud Tag.counts, %w{css1 css2 css3 css4} do |tag, css_class| %>
-      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+      <span class = "cat-tags"><%= link_to tag.name, tag_path(tag.name), class: css_class %></span>
     <% end %>
+    
+    <h4><i class="fa fa-object-group" aria-hidden="true"></i> CATEGORIES</h4>
+    <% @categories.each do |category| %>
+      <span class = "cat-tags">
+         <%=link_to category, category_path(category) %> <br>
+      </span>
+     
+    <%end%>
     
   </div>
   

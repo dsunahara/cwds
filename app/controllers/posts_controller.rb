@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   
   def index
+    
+    @categories = Category.distinct.pluck(:name)
+    
     if params[:tag]
      @posts = Post.tagged_with(params[:tag]).order('created_at DESC')
      @title = params[:tag].titleize
