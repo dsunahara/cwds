@@ -18,7 +18,8 @@ gem 'coffee-rails',            '4.2.1'
 gem 'jquery-rails',            '4.1.1'
 gem 'turbolinks',              '5.0.1'
 gem 'jbuilder',                '2.4.1'
-gem 'ckeditor' 
+gem 'ckeditor'
+gem 'jquery-datatables-rails', '~> 3.4.0'
 
 
 group :development, :test do

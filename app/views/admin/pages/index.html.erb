@@ -1,32 +1,41 @@
 <main class="usa-grid usa-section" id="main-content">
 <h1>Pages</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Slug</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pages.each do |page| %>
-      <tr>
-        <td><%= page.title %></td>
-        <td><%= truncate(page.body, length:50) %></td>
-        <td><%= page.slug %></td>
-        <td><%= link_to 'Show', page_path(page) %></td>
-        <td><%= link_to 'Edit', edit_admin_page_path(page) %></td>
-        <td><%= link_to 'Destroy', admin_page_path(page), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table table-bordered table-hover dt-responsive">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Slug</th>
+            <th>Show</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @pages.each do |page| %>
+            <tr>
+              <td><%= page.title %></td>
+              <td><%= page.slug %></td>
+              <td><%= link_to 'Show', page_path(page) %></td>
+              <td><%= link_to 'Edit', edit_admin_page_path(page) %></td>
+              <td><%= link_to 'Destroy', admin_page_path(page), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>  
+  </div>
 
 <%= button_to 'New Page', new_admin_page_path, :method => :get %>
 
+<script>
+  $('table').DataTable();
+
+// See:
+// http://www.sitepoint.com/responsive-data-tables-comprehensive-list-solutions
+</script>
 
 </main>
