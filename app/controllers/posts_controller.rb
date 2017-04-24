@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   
   def index
-    
+    #show the title of the Filtered blog
     @categories = Category.distinct.pluck(:name)
     
     if params[:tag]
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
       @posts = Post.categorized_with(params[:category]).order('created_at DESC')
       @title = params[:category].titleize
     else
-     @posts = Post.all.order('created_at DESC')
+     @posts = Post.all.where(:status => 'Published').order('created_at DESC')
     end
   end
   
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     
-    if @post.update(params[:post].permit(:title, :body, :all_tags, :all_categories))
+    if @post.update(post_params)
       redirect_to @post
     else
       render 'edit'
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
   
   private
   def post_params
-    params.require(:post).permit(:title, :body, :all_tags, :all_categories)
+    params.require(:post).permit(:title, :body, :all_tags, :all_categories, :status)
     
   end
   
