@@ -203,20 +203,8 @@ hr {
   }
 }
 
+/* Responsive Tables */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+select.input-sm, .input-group-sm > select.form-control, .input-group-sm > select.input-group-addon, .input-group-sm > .input-group-btn > select.btn {
+  line-height: 19px;
+}
