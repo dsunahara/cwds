@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   validates :title, presence: true, length: {minimum:5}
   validates :body, presence: true
+  validates :status, presence: true
   has_many :taggings, :dependent => :delete_all
   has_many :tags, through: :taggings
   has_many :categorize, :dependent => :delete_all
