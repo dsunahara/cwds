@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   has_many :tags, through: :taggings
   has_many :categorize, :dependent => :delete_all
   has_many :categories, through: :categorize
-  before_save :ensure_published_at, :if => :status == "Published"
+  #before_save :ensure_published_at, :if => :status == "Published"
   
   
  
