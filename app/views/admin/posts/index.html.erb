@@ -7,9 +7,10 @@
         <thead>
           <tr>
           <th>Title</th>
-          <th>Author</th>
+          <th>Authur</th>
           <th>Categories</th>
           <th>Tags</th>
+          <th>Created on</th>
           <th>Created on</th>
         </tr>
         </thead>
@@ -26,6 +27,7 @@
               <td><%=raw category_links(post.all_categories)%></td>
               <td><%=raw tag_links(post.all_tags)%></td>
               <td><%= time_ago_in_words(post.created_at)%> ago</td>
+              <td><%= post.created_at%> ago</td>
             </tr>
           <% end %>
         </tbody>
@@ -37,7 +39,21 @@
 <%= button_to 'New post', new_post_path, :method => :get %>
 
 <script>
-  $('table').DataTable();
+$(document).ready(function() {
+
+  $('table').dataTable( {
+  
+    "order": [ 4, 'desc' ],
+
+    "columnDefs": [
+      { "orderData": 5, "targets": 4 },
+      { "targets": 5, visible: false }
+    ]
+    
+  } );
+} );
+
 </script>
+
 
 </main>

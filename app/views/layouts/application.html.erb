@@ -8,7 +8,11 @@
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
       <%= render 'layouts/shim' %>
     </head>
-    <body class="layout-demo">
+    <%- if params[:controller] == 'admin/posts' or params[:controller] == 'admin/pages' and params[:action] == 'index' %>
+      <body data-turbolinks="false">
+    <%- else %>
+      <body data-turbolinks="true">
+    <%- end %>
       <!--<a class="usa-skipnav" href="#main-content">Skip to main content</a>-->
       <%= render 'layouts/header'%>
        <% flash.each do |message_type, message| %>
