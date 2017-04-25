@@ -18,6 +18,10 @@
     <%= f.select :status, ['Draft','Published'], :prompt => "Draft of Published?" %>
   </p>
   <p>
+    <%= f.label :publish_time %><br />
+    <%= f.datetime_select :publish_time, :ampm => true, :minute_step => 15 %>
+  </p>
+  <p>
     <%= f.label :body %>
     <%= f.cktext_area :body %>
   </p>

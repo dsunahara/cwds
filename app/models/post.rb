@@ -1,4 +1,8 @@
 class Post < ApplicationRecord
+  scope :published, proc {
+    where(:status => 'Published').where('publish_time <= ?', Time.zone.now)
+  }
+  
   validates :title, presence: true, length: {minimum:5}
   validates :body, presence: true
   validates :status, presence: true
@@ -6,6 +10,10 @@ class Post < ApplicationRecord
   has_many :tags, through: :taggings
   has_many :categorize, :dependent => :delete_all
   has_many :categories, through: :categorize
+  before_save :ensure_published_at, :if => :status == "Published"
+  
+  
+ 
   
   
   def all_categories=(names)
@@ -35,6 +43,12 @@ class Post < ApplicationRecord
   
   def self.categorized_with(name)
     Category.find_by_name!(name).posts
+  end
+  
+   protected
+  def ensure_published_at
+    # Set it to current time if none has been specified.
+    self.publish_time ||= Time.zone.now
   end
   
 end

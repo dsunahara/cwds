@@ -14,7 +14,7 @@ class PostsController < ApplicationController
       @posts = Post.categorized_with(params[:category]).order('created_at DESC')
       @title = params[:category].titleize
     else
-     @posts = Post.all.where(:status => 'Published').order('created_at DESC')
+     @posts = Post.published
     end
   end
   
@@ -59,7 +59,7 @@ class PostsController < ApplicationController
   
   private
   def post_params
-    params.require(:post).permit(:title, :body, :all_tags, :all_categories, :status)
+    params.require(:post).permit(:title, :body, :all_tags, :all_categories, :status, :publish_time)
   end
   #check and make sure it user is site admin before giving access 
         def check_role
