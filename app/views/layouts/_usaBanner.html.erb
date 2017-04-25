@@ -19,6 +19,7 @@
                 <p>
                   <strong><%= link_to "Users", users_path %> | <%= link_to "Settings", edit_user_path(current_user) %> 
                   | <%= link_to "Profile", user_path(current_user) %> <% if check_role?("Site Admin") %>| <%=link_to "Role Console", admin_roles_url()%> 
+                  | <%=link_to "Page Console", admin_pages_url()%>
                    <%end%> <%if check_role?("Content Editor")%>
                   | <%=link_to "Page Console", admin_pages_url()%><%end%>
                   | <%if check_role?("News Editor")%><%=link_to "Blog Console", admin_posts_url()%> <%end%>
