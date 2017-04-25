@@ -1,9 +1,8 @@
 <main class="usa-grid usa-section" id="main-content">
 <h1>Blog Posts</h1>
 
-  <div class="row">
-    <div class="col-xs-12">
-      <table class="table table-bordered table-hover dt-responsive">
+
+      <table id="table_posts" class="table-bordered dt-responsive">
         <thead>
           <tr>
           <th>Title</th>
@@ -32,28 +31,31 @@
           <% end %>
         </tbody>
       </table>
-    </div>
-  </div>
 
 
 <%= button_to 'New post', new_post_path, :method => :get %>
 
 <script>
 $(document).ready(function() {
-
-  $('table').dataTable( {
-  
+  var table = $('#table_posts').dataTable( {
     "order": [ 4, 'desc' ],
-
     "columnDefs": [
       { "orderData": 5, "targets": 4 },
-      { "targets": 5, visible: false }
+      { "targets": 5, visible: false}
     ]
     
   } );
 } );
 
 </script>
+<style>
+  .dataTables_wrapper .dataTables_paginate .paginate_button {
+
+    padding: 0;
+    margin-left: 0px; 
+
+  }
+</style>
 
 
 </main>
