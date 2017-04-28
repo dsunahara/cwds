@@ -1,4 +1,5 @@
-workers Integer(ENV['WEB_CONCURRENCY'] || 2)
+#changing web concurrencty to 1 for less ram usage 4/26/17
+workers Integer(ENV['WEB_CONCURRENCY'] || 1)
 threads_count = Integer(ENV['RAILS_MAX_THREADS'] || 5)
 threads threads_count, threads_count
 
