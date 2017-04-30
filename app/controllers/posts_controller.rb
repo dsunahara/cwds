@@ -15,6 +15,10 @@ class PostsController < ApplicationController
       @title = params[:category].titleize
     else
      @posts = Post.published
+       respond_to do |format|
+        format.html
+        format.rss { render :layout => false }
+      end
     end
   end
   
