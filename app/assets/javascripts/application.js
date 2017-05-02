@@ -20,6 +20,8 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require dataTables/jquery.dataTables
+//= require moment
+//= require bootstrap-datetimepicker
 
 //= require uswds
 

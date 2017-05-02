@@ -19,8 +19,28 @@
   </p>
   <p>
     <%= f.label :publish_time %><br />
-    <%= f.datetime_select :publish_time, :ampm => true, :minute_step => 15 %>
+    <div class='col-sm-6'>
+      <div class="form-group">
+          <div class='input-group date' id='datetimepicker1'>
+            <%= f.datetime_select :publish_time %>
+          </div>  
+      </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker1').datetimepicker({
+                showTodayButton: true,
+                format: "DD-MM-YYYY hh:mm A",
+                sideBySide: true,
+                widgetPositioning: {
+                    horizontal: 'left',
+                    vertical: 'top'
+                }
+            });
+        });
+    </script>
   </p>
+  <br>
   <p>
     <%= f.label :body %>
     <%= f.cktext_area :body %>
@@ -43,3 +63,9 @@
   </p>
   
 <%end%>
+
+<style>
+  input, textarea, select {
+    margin: 0;
+  }
+</style>
