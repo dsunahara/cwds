@@ -9,45 +9,47 @@
       </ul>
     </div>
   <%end%>
-  <p>
-    <%= f.label :title %>  
-    <%= f.text_field :title %> 
-  </p>
-  <p>
-    <%= f.label :status %>
-    <%= f.select :status, ['Draft','Published'], :prompt => "Draft of Published?" %>
-  </p>
-  <p>
-    <%= f.label :publish_time %><br />
-    <div class='col-sm-6'>
-      <div class="form-group">
-          <div class='input-group date' id='datetimepicker1'>
-            <%= f.datetime_select :publish_time %>
-          </div>  
-      </div>
-    </div>
-  </p>
-  <br><br>
-  <p>
-    <%= f.label :body %>
-    <%= f.cktext_area :body %>
-  </p>
   
-  <p>
-    <%= f.label :Categories %>
-    <%= f.text_field :all_categories, placeholder: "Categories seperated with comma" %>
-  </p>
- 
-  <p>
-    <%= f.label :Tags %>
-    <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
-  </p>
-  
- 
-  
-  <p>
+  <main id="main-content">
+    <div class="usa-width-three-fourths">
+      <p>
+        <%= f.label :title %>  
+        <%= f.text_field :title %> 
+      </p>
+        <p>
+          <%= f.label :body %>
+          <%= f.cktext_area :body %>
+        </p>
+        <p>
     <%= f.submit %>  
   </p>
+    </div>
+    <div class="usa-width-one-fourth">
+      <p>
+        <%= f.label :status %>
+        <%= f.select :status, ['Draft','Published'], :prompt => "Draft of Published?" %>
+      </p>
+      <p>
+        <%= f.label :publish_time %><br />
+          <div class="form-group">
+              <div class='input-group date' id='datetimepicker1'>
+                <%= f.datetime_select :publish_time %>
+              </div>  
+          </div>
+      </p>
+      <p>
+        <%= f.label :Categories %>
+        <%= f.text_field :all_categories, placeholder: "Categories seperated with comma" %>
+      </p>
+     
+      <p>
+        <%= f.label :Tags %>
+        <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
+      </p>
+    </div>
+  </main>
+  
+
   
 <%end%>
 
@@ -56,7 +58,8 @@
         $('#datetimepicker1').datetimepicker({
             showTodayButton: true,
             format: "DD-MM-YYYY hh:mm A",
-            sideBySide: true,
+            showTodayButton: false,
+            toolbarPlacement: 'bottom',
             widgetPositioning: {
                 horizontal: 'left',
                 vertical: 'top'
@@ -66,8 +69,16 @@
 </script>
     
 <style>
+  @media screen and (min-width: 600px) {
+    .usa-width-three-fourths {
+      width: 70.41059%;
+      margin-right: 6.35765%;
+    }
+  }
+
   input, textarea, select {
     margin: 0;
+    max-width: 70rem;
   }
   
   .col-sm-6 {
