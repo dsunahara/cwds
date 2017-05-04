@@ -13,7 +13,7 @@
         
         <div class="entry-meta">
           <i class="fa fa-calendar" aria-hidden="true"></i>
-          <span class="date"><%= post.created_at.strftime("%B, %d, %Y")%></span>
+          <span class="date"><%= post.publish_time.strftime("%B, %d, %Y")%></span>
         </div>
         
         <div><%=raw post.body%></div>
