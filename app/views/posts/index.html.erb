@@ -31,7 +31,7 @@
   </div>
   <div class = "usa-width-one-third">
     <h4><i class="fa fa-newspaper-o" aria-hidden="true"></i> RECENT POST</h4>
-    <%@posts.first(10).each do |post|  %>
+    <%@posts.first(5).each do |post|  %>
       <span class = "cat-tags" style="font-size:large;">
          <%=link_to post.title, post %> <br>
       </span>
