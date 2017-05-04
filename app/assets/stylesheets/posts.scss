@@ -45,5 +45,31 @@
   .category {
     padding: 0 15px 0 0;
   }
-  
+}
+
+/* Recent Posts Widget */
+
+.widget ul {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+.widget ul li {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  padding-bottom: 3px;
+  font-size: 15px;
+}
+.widget ul li:first-child {
+  border-top: none;
+}
+.widget ul li a {
+  color: #2C3E8A;
+  text-decoration: none;
+}
+.widget ul li a:visited {
+  color: #2C3E8A;
+}
+.widget ul li a:hover, .widget ul li a:focus, .widget ul li a:active {
+  color: #337ab7;
 }
