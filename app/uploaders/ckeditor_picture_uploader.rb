@@ -1,6 +1,8 @@
 # encoding: utf-8
+require 'carrierwave/processing/mime_types'
 class CkeditorPictureUploader < CarrierWave::Uploader::Base
   include Ckeditor::Backend::CarrierWave
+  
 
   # Include RMagick or ImageScience support:
   # include CarrierWave::RMagick
@@ -49,4 +51,6 @@ class CkeditorPictureUploader < CarrierWave::Uploader::Base
   def extension_white_list
     Ckeditor.image_file_types
   end
+  
+  
 end
