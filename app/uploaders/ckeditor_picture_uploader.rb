@@ -52,11 +52,6 @@ class CkeditorPictureUploader < CarrierWave::Uploader::Base
     Ckeditor.image_file_types
   end
   
-  def will_include_content_type
-    true
-  end
-
-  default_content_type  'image/jpeg'
-  
+ 
   
 end
