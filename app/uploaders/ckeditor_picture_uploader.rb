@@ -2,7 +2,7 @@
 require 'carrierwave/processing/mime_types'
 class CkeditorPictureUploader < CarrierWave::Uploader::Base
   include Ckeditor::Backend::CarrierWave
-  
+  include CarrierWave::MimeTypes
 
   # Include RMagick or ImageScience support:
   # include CarrierWave::RMagick
@@ -36,6 +36,7 @@ class CkeditorPictureUploader < CarrierWave::Uploader::Base
   # end
 
   process :extract_dimensions
+  process :set_content_type
 
   # Create different versions of your uploaded files:
   version :thumb do
