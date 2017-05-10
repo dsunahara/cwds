@@ -1,9 +1,8 @@
 <main class="usa-grid usa-section" id="main-content">
 <h1>Pages</h1>
 
-  <div class="row">
-    <div class="col-xs-12">
-      <table class="table table-bordered table-hover dt-responsive">
+
+      <table class="table-bordered dataTables_wrapper dt-responsive">
         <thead>
           <tr>
             <th>Title</th>
@@ -26,8 +25,7 @@
           <% end %>
         </tbody>
       </table>
-    </div>  
-  </div>
+
 
 <%= button_to 'New Page', new_admin_page_path, :method => :get %>
 
@@ -44,6 +42,22 @@
     margin-left: 0px; 
 
   }
+  
+  select {
+    -webkit-appearance: menulist;
+    box-sizing: border-box;
+    align-items: center;
+    white-space: pre;
+    -webkit-rtl-ordering: logical;
+    color: black;
+    background-color: white;
+    cursor: default;
+    border-width: 1px;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;
+}
+
 </style>
 
 </main>
