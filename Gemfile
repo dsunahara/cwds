@@ -24,9 +24,11 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 
+
 group :development, :test do
   gem 'sqlite3', '1.3.11'
   gem 'byebug',  '9.0.0', platform: :mri
+  gem 'dotenv-rails'
 end
 
 group :development do
