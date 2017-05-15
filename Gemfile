@@ -25,10 +25,11 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 
 
+
 group :development, :test do
   gem 'sqlite3', '1.3.11'
   gem 'byebug',  '9.0.0', platform: :mri
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', :require => 'dotenv/rails-now'
 end
 
 group :development do
