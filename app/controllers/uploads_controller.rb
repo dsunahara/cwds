@@ -37,7 +37,8 @@ class UploadsController < ApplicationController
   # PATCH/PUT /uploads/1
   def update
     if @upload.update(post_upload_params)
-      redirect_to @upload, notice: 'Upload attachment was successfully updated.'
+      redirect_to uploads_url, notice: 'Upload attachment was successfully updated.'
+      
     else
       render :edit
     end
