@@ -14,7 +14,7 @@ class PostsController < ApplicationController
       @posts = Post.categorized_with(params[:category]).order('publish_time DESC')
       @title = params[:category].titleize
     else
-     @posts = Post.published.order('publish_time DESC')
+     @posts = Post.published.order('publish_time DESC').paginate(page: params[:page], per_page: 3)
        respond_to do |format|
         format.html
         format.rss { render :layout => false }
