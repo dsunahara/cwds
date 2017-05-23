@@ -11,7 +11,7 @@ class UploadsController < ApplicationController
   # GET /uploads/1
   def show
     @upload = Upload.find(params[:id])
-    redirect_to @upload.name.file.authenticated_url
+    #redirect_to @upload.name.file.authenticated_url
   end
  
   # GET /uploads/new
@@ -28,7 +28,7 @@ class UploadsController < ApplicationController
     @upload = Upload.new(post_upload_params)
  
     if @upload.save
-      redirect_to @upload, notice: 'Upload was successfully created.'
+      redirect_to uploads_url, notice: 'Upload was successfully created.'
     else
       render :new
     end
@@ -58,7 +58,7 @@ class UploadsController < ApplicationController
  
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_upload_params
-      params.require(:upload).permit(:name)
+      params.require(:upload).permit(:name, :directory)
     end
     
     #check and make sure it user is site admin before giving access 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170513031608) do
+ActiveRecord::Schema.define(version: 20170523001101) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "user_id"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20170513031608) do
 
   create_table "uploads", force: :cascade do |t|
     t.string "name"
+    t.string "directory"
   end
 
   create_table "users", force: :cascade do |t|
