@@ -1,6 +1,8 @@
 <main class="usa-grid usa-section" id="main-content">
   <div class="usa-width-two-thirds">
     
+   
+    
     <% if @title.present?%>
     <h2><%= @title %></h2>
     <% else%>
@@ -28,7 +30,15 @@
       </div>
       
     <%end%>
+    
+      <div align="center">
+  <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
+</div>
   </div>
+  
+    
+
+  
   <div class = "usa-width-one-third">
     <h4><i class="fa fa-newspaper-o" aria-hidden="true"></i> RECENT POST</h4>
     <div class="widget">
@@ -40,7 +50,8 @@
         <%end%>
       </ul> 
     </div>
-        
+    
+  
     
     <h4><i class="fa fa-tag" aria-hidden="true"></i> POPULAR TAGS</h4>
     <% tag_cloud Tag.counts, %w{css1 css2 css3 css4} do |tag, css_class| %>

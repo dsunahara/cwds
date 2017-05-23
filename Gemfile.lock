@@ -47,8 +47,6 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
-    bootstrap-will_paginate (0.0.10)
-      will_paginate
     bootstrap3-datetimepicker-rails (4.17.47)
       momentjs-rails (>= 2.8.1)
     builder (3.2.3)
@@ -364,6 +362,8 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     will_paginate (3.1.0)
+    will_paginate-bootstrap (1.0.1)
+      will_paginate (>= 3.0.3)
     xml-simple (1.1.5)
 
 PLATFORMS
@@ -372,7 +372,6 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (= 3.1.11)
   bootstrap-sass (= 3.3.6)
-  bootstrap-will_paginate (= 0.0.10)
   bootstrap3-datetimepicker-rails (~> 4.17.47)
   byebug (= 9.0.0)
   carrierwave (= 0.11.2)
@@ -404,6 +403,7 @@ DEPENDENCIES
   uglifier (= 3.0.0)
   web-console (= 3.1.1)
   will_paginate (= 3.1.0)
+  will_paginate-bootstrap
 
 BUNDLED WITH
    1.14.4
