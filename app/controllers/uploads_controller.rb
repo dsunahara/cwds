@@ -1,7 +1,7 @@
 class UploadsController < ApplicationController
   before_action :set_upload, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:show, :index, :edit, :update, :destroy]
-  before_action :check_role, only: [:edit, :update, :destroy, :index]
+  before_action :logged_in_user, only: [:new, :show, :index, :edit, :update, :destroy]
+  before_action :check_role, only: [:new, :edit, :update, :destroy, :index]
  
   # GET /uploads
   def index
