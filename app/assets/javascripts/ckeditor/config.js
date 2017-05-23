@@ -11,6 +11,7 @@ if (typeof(CKEDITOR) != 'undefined') {
    config.enterMode = CKEDITOR.ENTER_BR;
    config.shiftEnterMode = CKEDITOR.ENTER_BR;
    config.autoParagraph = false;
+   config.allowedContent = true;
    
         /* Filebrowser routes */
   // The location of an external file browser, that should be launched when "Browse Server" button is pressed.
