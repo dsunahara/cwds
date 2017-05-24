@@ -8,13 +8,13 @@ class PostsController < ApplicationController
     @categories = Category.distinct.pluck(:name)
     
     if params[:tag]
-     @posts = Post.tagged_with(params[:tag]).order('publish_time DESC')
+     @posts = Post.tagged_with(params[:tag]).order('publish_time DESC').paginate(page: params[:page], per_page: 10)
      @title = params[:tag].titleize
     elsif params[:category]
-      @posts = Post.categorized_with(params[:category]).order('publish_time DESC')
+      @posts = Post.categorized_with(params[:category]).order('publish_time DESC').paginate(page: params[:page], per_page: 10)
       @title = params[:category].titleize
     else
-     @posts = Post.published.order('publish_time DESC').paginate(page: params[:page], per_page: 3)
+     @posts = Post.published.order('publish_time DESC').paginate(page: params[:page], per_page: 10)
        respond_to do |format|
         format.html
         format.rss { render :layout => false }
