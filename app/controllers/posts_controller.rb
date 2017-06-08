@@ -2,6 +2,8 @@ class PostsController < ApplicationController
      before_action :logged_in_user, only: [:edit, :update, :destroy]
     #before_action :admin_user, only: [:show, :edit, :update, :destroy, :index]
     before_action :check_role, only: [:edit, :update, :destroy]
+    
+
   
   def index
     #show the title of the Filtered blog
@@ -27,6 +29,10 @@ class PostsController < ApplicationController
   end
   
   def create 
+    #generate slug field using the title field before saving to database.
+    puts params['post']['title']
+    params['post']['slug'] = params['post']['title'].parameterize   
+    
     @post = Post.new(post_params)
     if @post.save
       redirect_to admin_posts_url
@@ -36,11 +42,11 @@ class PostsController < ApplicationController
   end
   
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:id])
   end
   
   def update
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:id])
     
     if @post.update(post_params)
       redirect_to admin_posts_url
@@ -65,8 +71,9 @@ class PostsController < ApplicationController
   end
   
   private
+  
   def post_params
-    params.require(:post).permit(:title, :body, :all_tags, :all_categories, :status, :publish_time)
+    params.require(:post).permit(:title, :body, :all_tags, :all_categories, :status, :publish_time, :slug)
   end
   #check and make sure it user is site admin before giving access 
         def check_role
