@@ -58,7 +58,10 @@ class PostsController < ApplicationController
   
   
   def show
-    @post =  Post.find(params[:id])
+    #@post =  Post.find(params[:id])
+    puts 
+    @post = Post.find_by_slug(params[:id])
+    #redirect_to root_path unless @post
   end
   
   private

@@ -14,7 +14,9 @@ class Post < ApplicationRecord
   
   
  
-  
+  def to_param
+   slug
+  end
   
   def all_categories=(names)
     self.categories = names.split(",").map do |name|
