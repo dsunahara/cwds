@@ -64,9 +64,12 @@ class PostsController < ApplicationController
   
   
   def show
-    #@post =  Post.find(params[:id])
-    puts 
+    
+    #show the title of the Filtered blog
+    @categories = Category.distinct.pluck(:name)
+    
     @post = Post.find_by_slug(params[:id])
+    @posts = Post.published.order('publish_time DESC').limit(5)
     #redirect_to root_path unless @post
   end
   
