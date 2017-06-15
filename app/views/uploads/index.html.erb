@@ -18,21 +18,22 @@
           <% end %>
         </td>
         <td><%= upload.directory %></td>
-        <td><%= upload.created_at %></td>
+        <td><center><%= upload.created_at.strftime("%m-%d-%Y") %></center></td>
     </tr>
     <% end %>
 
   </tbody>
 </table>  
-<br>
-<%= link_to 'New upload', new_upload_path %>
+<div class="button_wrapper">
+<%= button_to 'New upload', new_upload_path, :method => :get %>
+</div>
 </main>
 
 
 <script>
 $(document).ready(function() {
   var table = $('#table_uploads').dataTable( {
-    "order": [ 0, 'desc' ],
+    "order": [ 1, 'asc' ],
   } );
 } );
 
@@ -49,6 +50,10 @@ $(document).ready(function() {
   a {
     text-decoration: none;
   }
+  
+  form [type="submit"], form [type="submit"] {
+  margin-top: 0;
+}
 </style>
 
 
