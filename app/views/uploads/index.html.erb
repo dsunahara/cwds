@@ -1,11 +1,55 @@
-<% @uploads.each do |upload| %>
-  <%= link_to upload do %>
-  <!--<img src="<%= upload.name%>">-->
-  <p><%= upload.name.path%></p>
-  <% end %>
+<main class="usa-grid usa-section" id="main-content">
+<h1>Uploads</h1>
+<table id="table_uploads" class="table-bordered dt-responsive">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Category</th>
+      <th>Created At</th>
+    </tr>
+  </thead>
   
-<% end %>
- 
+  <tbody>
+    <% @uploads.each do |upload| %>
+    <tr>
+        <td>
+          <%= link_to upload do %>
+            <%=  File.basename(upload.name.path) %>
+          <% end %>
+        </td>
+        <td><%= upload.directory %></td>
+        <td><%= upload.created_at %></td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>  
 <br>
- 
 <%= link_to 'New upload', new_upload_path %>
+</main>
+
+
+<script>
+$(document).ready(function() {
+  var table = $('#table_uploads').dataTable( {
+    "order": [ 0, 'desc' ],
+  } );
+} );
+
+</script>
+
+<style>
+  .dataTables_wrapper .dataTables_paginate .paginate_button {
+
+    padding: 0;
+    margin-left: 0px; 
+
+  }
+  
+  a {
+    text-decoration: none;
+  }
+</style>
+
+
+</main>
