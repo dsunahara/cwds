@@ -8,7 +8,13 @@
     </div>
     <div>
       <%= f.label :directory %> <br>
-      <%= f.select :directory, ['general', 'implementation','training','data quality']%>
+      <%= f.select :directory, options_for_select(@upload_paths.map { |obj| [obj, obj] }, :selected => 'general') %>
+      
+    </div>
+    <div>
+       <%= f.label :new_directory %> <br>
+       <%= text_field_tag 'new_directory', nil, placeholder: 'Enter a new directory' %>
+      
     </div>
     <div>
       <%= f.submit "Upload" %>

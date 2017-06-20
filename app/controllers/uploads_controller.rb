@@ -2,6 +2,7 @@ class UploadsController < ApplicationController
   before_action :set_upload, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:new, :show, :index, :edit, :update, :destroy]
   before_action :check_role, only: [:new, :edit, :update, :destroy, :index]
+  
  
   # GET /uploads
   def index
@@ -17,6 +18,14 @@ class UploadsController < ApplicationController
   # GET /uploads/new
   def new
     @upload = Upload.new
+    @uploads = Upload.all
+    
+    u = Upload.all
+    @upload_paths = u.map { 
+      |upload| encoded_url = URI.encode(upload.name.path)
+      URI(encoded_url).path.split('/').fourth.tr("%20", " ")
+    }.uniq
+
   end
  
   # GET /uploads/1/edit
@@ -25,8 +34,13 @@ class UploadsController < ApplicationController
  
   # POST /uploads
   def create
+    
+    #change parama to new directory if it is not empty
+    if params[:new_directory].blank? == false 
+    params[:upload][:directory] = params[:new_directory]
+    end
+    
     @upload = Upload.new(post_upload_params)
- 
     if @upload.save
       redirect_to uploads_url, notice: 'Upload was successfully created.'
     else
@@ -58,13 +72,18 @@ class UploadsController < ApplicationController
  
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_upload_params
-      params.require(:upload).permit(:name, :directory)
+        params.require(:upload).permit(:name, :directory)
     end
+      
+      
     
     #check and make sure it user is site admin before giving access 
     def check_role
       redirect_to(root_url) unless check_role?("Content Editor") or check_role?("Site Admin")
     end
+    
+    
+    
       
     #confirms a logged-in user.
     def logged_in_user

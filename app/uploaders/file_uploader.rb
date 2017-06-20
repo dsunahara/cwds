@@ -1,4 +1,5 @@
 class FileUploader < CarrierWave::Uploader::Base
+  
  
   include CarrierWave
  
@@ -8,6 +9,10 @@ class FileUploader < CarrierWave::Uploader::Base
     "uploads/private/#{model.class.to_s.underscore}/#{model.directory}/#{model.id}"
   end
  
+ 
+ 
+  
+  
  
  
 end
