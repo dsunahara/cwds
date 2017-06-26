@@ -27,12 +27,12 @@ class RolesController < ApplicationController
             @user.roles << Role.new(name: params[:role_name])
             format.html { redirect_to new_admin_role_path(:user_id => @user.id), notice: 'Role was successfully created.' }
             format.json { render :show }
-            puts "looks like unless is trigger"
+            
             
           else
              format.html { redirect_to new_admin_role_path(:user_id => @user.id), notice: 'Role exist already.' }
              format.json { render :show }
-             puts "looks like else loop is trigger"
+             
         end
       end
       

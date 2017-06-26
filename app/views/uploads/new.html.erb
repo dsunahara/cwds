@@ -2,6 +2,17 @@
   <h1>New Upload</h1>
    
   <%= form_for(@upload) do |f| %>
+    <% if @upload.errors.any?  %>
+      <div>
+        <h2><%= pluralize(@upload.errors.count, "error") %> prevented from saving</h2>
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <%end%>
+        </ul>
+      </div>
+    <%end%>
+  
     <div>
       <%= f.label :name %><br>
       <%= f.file_field :name %>

@@ -2,6 +2,7 @@ class UploadsController < ApplicationController
   before_action :set_upload, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:new, :show, :index, :edit, :update, :destroy]
   before_action :check_role, only: [:new, :edit, :update, :destroy, :index]
+  before_action :check_params, only: [:create]
   
  
   # GET /uploads
@@ -92,6 +93,14 @@ class UploadsController < ApplicationController
         flash[:danger]= "Please log in."
         redirect_to login_path
         
+      end
+    end
+    
+    def check_params
+      if params[:name] == nil
+        flash[:danger] = "Please make sure a file is selected"
+        
+        redirect_to :controller => "uploads", :action =>"new"
       end
     end
 end
