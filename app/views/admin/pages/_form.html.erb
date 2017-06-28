@@ -1,16 +1,4 @@
  <%= form_for(["admin", @page]) do |f| %>
-  <% if page.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>
-
-      <ul>
-      <% page.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <main id="main-content">
     <div class="usa-width-three-fourths">
       <div class="field">
@@ -27,6 +15,18 @@
         <%= f.label :slug %>
         <%= f.text_field :slug %>
       </div>
+      
+      
+      
+      <div>
+        <%= label :private, "Page set to private?", value: false %>
+        
+        <%= f.select :private, [['No', false], ['Yes', true]] %>
+        
+      </div>
+      
+      
+
       
       <div class="actions">
         <%= f.submit %>
