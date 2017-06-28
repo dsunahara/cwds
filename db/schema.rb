@@ -92,8 +92,8 @@ ActiveRecord::Schema.define(version: 20170628183905) do
   create_table "uploads", force: :cascade do |t|
     t.string   "name"
     t.string   "directory"
-    t.datetime "created_at", default: '2017-06-14 23:05:04', null: false
-    t.datetime "updated_at", default: '2017-06-14 23:05:04', null: false
+    t.datetime "created_at", default: '2017-06-14 23:39:15', null: false
+    t.datetime "updated_at", default: '2017-06-14 23:39:15', null: false
   end
 
   create_table "users", force: :cascade do |t|
