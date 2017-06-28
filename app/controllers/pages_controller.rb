@@ -14,8 +14,8 @@ class PagesController < ApplicationController
   end
   
   def private_page?
-   if params[:id] == "test1"
-    puts "lalalalala"
+   @page = Page.find_by_slug(params[:id])
+   if @page.private == true
     return true
    end
   end
