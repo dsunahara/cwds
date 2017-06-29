@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   def show
    if private_page?
     logged_in_user
+    @uploads = Upload.all
     @page = Page.find_by_slug(params[:id])
     redirect_to root_path unless @page
    end

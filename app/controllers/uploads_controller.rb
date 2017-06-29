@@ -37,6 +37,7 @@ class UploadsController < ApplicationController
   def create
     
     #change parama to new directory if it is not empty
+    check_params
     if params[:new_directory].blank? == false 
     params[:upload][:directory] = params[:new_directory]
     end
@@ -97,7 +98,7 @@ class UploadsController < ApplicationController
     end
     
     def check_params
-      if params[:name] == nil
+      if params[:upload][:name] == nil
         flash[:danger] = "Please make sure a file is selected"
         
         redirect_to :controller => "uploads", :action =>"new"
