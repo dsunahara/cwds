@@ -23,10 +23,16 @@ class UploadsController < ApplicationController
     
     u = Upload.all
     @upload_paths = u.map { 
-      |upload| encoded_url = URI.encode(upload.name.path)
-      URI(encoded_url).path.split('/').fourth.tr("%20", " ")
+      |upload| encoded_url = URI.encode(upload.name.path) 
+      url = URI(encoded_url).path.split('/').fourth
+      URI(encoded_url).path.split('/')[4..-1].each do |i|
+        if i != URI(encoded_url).path.split('/').last 
+          if has_number?(i) == false
+          end
+        end
+      end
+      URI(url)
     }.uniq
-
   end
  
   # GET /uploads/1/edit
@@ -104,4 +110,15 @@ class UploadsController < ApplicationController
         redirect_to :controller => "uploads", :action =>"new"
       end
     end
+    
+    #check if a string only contains number, if yes return true or else false
+    def has_number?(i)
+      if /^(?<num>\d+)$/ =~ i
+        true
+      else
+        false
+      end
+    end
+    
+   
 end
