@@ -1,0 +1,24 @@
+<table id="table_uploads" class="table-bordered dt-responsive">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Directory</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <% @uploads.each do |upload| %>
+        <tr>
+            <td>
+              <%= link_to upload do %>
+                <%=  File.basename(upload.name.path) %>
+              <% end %>
+            </td>
+            <td><%= upload.directory %></td>
+            <td><center><%= upload.created_at.strftime("%m-%d-%Y") %></center></td>
+        </tr>
+        <% end %>
+    
+      </tbody>
+</table> 

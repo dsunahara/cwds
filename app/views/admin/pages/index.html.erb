@@ -16,7 +16,7 @@
         <tbody>
           <% @pages.each do |page| %>
             <tr>
-              <td><%= page.title %></td>
+              <td><%= page.title %> <% if page.private == true%> <span style="color:orange"> - private page</span><%end%></td>
               <td><%= page.slug %></td>
               <td><%= link_to 'Show', page_path(page) %></td>
               <td><%= link_to 'Edit', edit_admin_page_path(page) %></td>

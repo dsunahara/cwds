@@ -15,14 +15,20 @@
         <%= f.label :slug %>
         <%= f.text_field :slug %>
       </div>
-      
-      
-      
+  
       <div>
         <%= label :private, "Page set to private?", value: false %>
-        
         <%= f.select :private, [['No', false], ['Yes', true]] %>
-        
+      </div>
+      
+      <div>
+        <%= label :fileDirectory, "Include File Directory Module?", value: false %>
+        <%= f.select :fileDirectory, [['No', false], ['Yes', true]] %>
+      </div>
+      
+      <div class="field">
+        <%= f.label :fileFolder, "Choose a Default folder to display" %>
+        <%= f.text_field :fileFolder %>
       </div>
       
       
