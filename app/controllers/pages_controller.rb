@@ -7,8 +7,8 @@ class PagesController < ApplicationController
     puts "private page!"
     redirect_to root_path unless @page
    end
-   puts "testing"
-   @uploads = Upload.all
+   
+   @uploads = Upload.where("directory like ?", "%#{Page.find_by_slug(params[:id]).fileFolder}%")
   end
   
   def index
