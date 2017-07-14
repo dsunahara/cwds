@@ -25,7 +25,7 @@
               <td><%= post.author %></td>
               <td><%=raw category_links(post.all_categories)%></td>
               <td><%=raw tag_links(post.all_tags)%></td>
-              <td><%= time_ago_in_words(post.created_at)%> ago</td>
+              <td><%= post.created_at.strftime("%B %d, %Y at %l:%M %p")%> </td>
               <td><%= post.created_at%> ago</td>
             </tr>
           <% end %>

@@ -2,7 +2,7 @@
   <main id="main-content">
     <div class="usa-width-three-fourths">
       <div class="field">
-        <%= f.label :title %>
+        <%= f.label :title, :style=>"margin-top: 0;"%>
         <%= f.text_field :title %>
       </div>
     
@@ -15,30 +15,120 @@
         <%= f.label :slug %>
         <%= f.text_field :slug %>
       </div>
-  
-      <div>
-        <%= label :private, "Page set to private? (If yes, only logged in user will have access to this page)", value: false %>
-        <%= f.select :private, [['No', false], ['Yes', true]] %>
-      </div>
-      
-      <div>
-        <%= label :fileDirectory, "Include File Directory Module?", value: false %>
-        <%= f.select :fileDirectory, [['No', false], ['Yes', true]] %>
-      </div>
-      
-      <div class="field">
-        <%= f.label :fileFolder, "Choose a Default folder to display" %>
-        <%= f.text_field :fileFolder %>
-      </div>
-      
-      
 
-      
       <div class="actions">
         <%= f.submit %>
       </div>
       
+      
       <%= link_to 'Back', admin_pages_path %>
     </div>  
-  </main>
+    
+    <div class="usa-width-one-fourth">
+      
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          <i class="fa fa-bar-chart-o fa-fw"></i> Status
+      </div>
+      <div class="panel-body">
+        <label>Published At</label><br>
+        <%= @page.created_at.strftime("%B %d, %Y at %l:%M %p") %> <br>
+
+        <label>Visibility</label><br>
+        <div class="btn-group" data-toggle="buttons">
+          <div class="btn btn-primary <%= 'active' if @page.private == false %>">Public
+          <%= f.radio_button :private, false%>
+          </div> 
+          <div class="btn btn-primary <%= 'active' if @page.private == true %>">Private
+          <%= f.radio_button :private, true %>
+          </div> 
+        </div>
+      </div>
+    </div>
+          
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <i class="fa fa-folder-open" aria-hidden="true"></i> File Manager Module
+      </div>
+      <div class="panel-body">
+        
+        <br>
+        <div class="btn-group" id="directory-module" data-toggle="buttons">
+          <div class="btn btn-primary <%= 'active' if @page.fileDirectory == false %>" id="directoryDisabled">Disabled
+          <%= f.radio_button :fileDirectory, false%>
+          </div> 
+          <div class="btn btn-primary <%= 'active' if @page.fileDirectory == true %>" id="directoryEnabled">Enabled
+          <%= f.radio_button :fileDirectory, true %>
+          </div> 
+        </div>
+
+        <div id="directory-folder">
+          <%= f.label :fileFolder, "Enter Default Folder" %>
+          <%= f.text_field :fileFolder %>
+        </div>
+      </div>
+    </div>        
+    
+  </div>
+</main>
 <% end %>
+
+<script>
+$(document).ready(function() {
+  var directory = <%= @page.fileDirectory %>
+  if (directory == true) {
+    $('#directory-folder').show();
+  } else {
+    $('#directory-folder').hide();
+  }
+  
+  $("#directoryDisabled").click(function(){
+      $('#directory-folder').hide();
+  });
+  $("#directoryEnabled").click(function(){
+      $('#directory-folder').show();
+  });
+})
+
+</script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<style>
+  @media screen and (min-width: 600px) {
+    .usa-width-three-fourths {
+      width: 68.41059%;
+      margin-right: 4.35765%;
+    }
+    
+    .usa-width-one-fourth:nth-child(2n) {
+      width: 27.23176%;
+    }
+  }
+
+  input, textarea, select {
+    margin: 0;
+    max-width: 70rem;
+  }
+  
+  .col-sm-6 {
+    padding-left: 0;
+  }
+  
+  .btn-primary {
+    background-color: grey;
+    border-color: #747e88;
+  }
+  
+  .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
+    outline: none;
+    outline: none; 
+    outline-offset: none;
+  }
+  
+  .panel-body {
+    padding: 0 15px 15px 15px;
+    font-size: 16px;
+  }
+</style>
