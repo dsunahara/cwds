@@ -31,8 +31,11 @@
           <i class="fa fa-bar-chart-o fa-fw"></i> Status
       </div>
       <div class="panel-body">
-        <label>Published At</label><br>
-        <%= @page.created_at.strftime("%B %d, %Y at %l:%M %p") %> <br>
+        
+        <% if controller_name == 'pages' && action_name == 'edit' %>
+          <label>Published At</label><br>
+          <%= @page.created_at.strftime("%B %d, %Y at %l:%M %p") %> <br>
+        <% end %>  
 
         <label>Visibility</label><br>
         <div class="btn-group" data-toggle="buttons">
