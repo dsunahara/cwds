@@ -32,11 +32,11 @@
         <div class="panel-body">
 
           <div class="btn-group" data-toggle="buttons">
-            <div class="btn btn-primary <%= 'active' if @post.status == "Published" %>">Published
-            <%= f.radio_button :status, 'Published'%>
-            </div> 
             <div class="btn btn-primary <%= 'active' if @post.status == "Draft" %>">Draft
-            <%= f.radio_button :status, 'Draft' %>
+            <%= f.radio_button :status, 'Draft'%>
+            </div> 
+            <div class="btn btn-primary <%= 'active' if @post.status == "Published" %>">Published
+            <%= f.radio_button :status, 'Published' %>
             </div> 
           </div>
           <br>
