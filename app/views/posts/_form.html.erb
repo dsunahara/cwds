@@ -25,30 +25,49 @@
       </p>
     </div>
     <div class="usa-width-one-fourth">
-      <p>
-        <%= f.label :status %>
-        <%= f.select :status, ['Draft','Published'], :prompt => "Draft of Published?" %>
-      </p>
-      <p>
-        <%= f.label :publish_time %><br />
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-bar-chart-o fa-fw"></i> Status
+        </div>
+        <div class="panel-body">
+
+          <div class="btn-group" data-toggle="buttons">
+            <div class="btn btn-primary <%= 'active' if @post.status == "Published" %>">Published
+            <%= f.radio_button :status, 'Published'%>
+            </div> 
+            <div class="btn btn-primary <%= 'active' if @post.status == "Draft" %>">Draft
+            <%= f.radio_button :status, 'Draft' %>
+            </div> 
+          </div>
+          <br>
+          <%= f.label :publish_time %><br />
           <div class="form-group">
               <div class='input-group date' id='datetimepicker1'>
                 <%= f.datetime_select :publish_time %>
               </div>  
           </div>
-      </p>
-      <p>
-        <%= f.label :Categories %>
-        <%= f.text_field :all_categories, placeholder: "Categories seperated with comma" %>
-      </p>
+      
+        </div>
+      </div>
+      
+      <div class="panel panel-default">
+      <div class="panel-heading">
+          <i class="fa fa-folder-open fa-fw"></i>Categories
+      </div>
+      <div class="panel-body">
+          <%= f.text_field :all_categories, placeholder: "Enter Categories", 'data-role'=>'tagsinput' %>
+      </div>
+     </div>
      
-      <p>
-        <%= f.label :Tags %>
-        <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
-      </p>
-      
-      
+     <div class="panel panel-default">
+      <div class="panel-heading">
+          <i class="fa fa fa-tags fa-fw"></i>Tags
+      </div>
+      <div class="panel-body">
+          <%= f.text_field :all_tags, placeholder: "Enter Tags", 'data-role'=>'tagsinput' %>
+      </div>
     </div>
+
   </main>
   
 
@@ -69,12 +88,21 @@
         });
     });
 </script>
-    
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 <style>
   @media screen and (min-width: 600px) {
     .usa-width-three-fourths {
-      width: 70.41059%;
-      margin-right: 6.35765%;
+      width: 68.41059%;
+      margin-right: 4.35765%;
+    }
+    
+    .usa-width-one-fourth:nth-child(2n) {
+      width: 27.23176%;
     }
   }
 
@@ -86,4 +114,81 @@
   .col-sm-6 {
     padding-left: 0;
   }
+  
+  .btn-primary {
+    background-color: grey;
+    border-color: #747e88;
+  }
+  
+  .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
+    outline: none;
+    outline: none; 
+    outline-offset: none;
+  }
+  
+  .btn-group {
+    margin-top: 15px;
+  }
+  
+  .panel-body {
+    padding: 0 15px 15px 15px;
+    font-size: 16px;
+  }
+  
+  /****  Bootstrap Tags  ****/
+  .bootstrap-tagsinput {
+  background-color: #fff;
+  padding: 18px 0 0 0;
+  color: #555;
+  vertical-align: middle;
+  border-radius: 4px;
+  max-width: 100%;
+  cursor: text;
+}
+.bootstrap-tagsinput input {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: #f5f5f5;
+  padding: 0 6px;
+  margin: 30px 0 0 0;
+  max-width: inherit;
+}
+.bootstrap-tagsinput.form-control input::-moz-placeholder {
+  color: #777;
+  opacity: 1;
+}
+.bootstrap-tagsinput.form-control input:-ms-input-placeholder {
+  color: #777;
+}
+.bootstrap-tagsinput.form-control input::-webkit-input-placeholder {
+  color: #777;
+}
+.bootstrap-tagsinput input:focus {
+  border: none;
+  box-shadow: none;
+}
+.bootstrap-tagsinput .tag {
+  margin-right: 2px;
+  color: white;
+}
+.bootstrap-tagsinput .tag [data-role="remove"] {
+  margin-left: 8px;
+  cursor: pointer;
+}
+.bootstrap-tagsinput .tag [data-role="remove"]:after {
+  content: "x";
+  padding: 0px 2px;
+}
+.bootstrap-tagsinput .tag [data-role="remove"]:hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.bootstrap-tagsinput .tag [data-role="remove"]:hover:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.label-info {
+  background-color: #286090;
+}
+
 </style>
