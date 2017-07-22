@@ -1,7 +1,9 @@
+module Admin
+
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: [:destroy]
+  before_action :check_role, only: [:show, :edit, :update, :destroy, :index]
   
   def index
      #Show All Users and page them
@@ -14,6 +16,7 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
+    @user.validate_email= false
   end
   
   def show
@@ -22,8 +25,8 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(user_params)  
-    @user.validate_email = true
+    @user = User.new(user_params)     
+    @user.validate_email = false
     if @user.save
       # Handle a successful save.
       #log_in @user
@@ -31,46 +34,13 @@ class UsersController < ApplicationController
       #redirect_to user_url(@user)  #short hand writing is redirect_to @user
       
       @user.send_activation_email
-      flash[:info] = "Please check your email to activate your account"
-      redirect_to root_url
+      flash[:info] = "User is activated, they will get an email asking to verify their account"
+      redirect_to admin_user_path
     else
       render 'new'
     end
   end
-  
-  def edit
-    @roles = Role.joins(:assignments).where('assignments.user_id = ?', @user.id)
-  end
-  
-  def update
-    if @user.update_attributes(user_params)
-      #handle success
-      flash[:success] = "Profile updated"
-      redirect_to @user 
-    else
-      render 'edit'
-    end
-  end
-  
-  def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
-    redirect_to users_url
-  end
-  
-  #confirms Super admin user
-  def admin_user
-    redirect_to(root_url) unless current_user.admin?
-  end
-  
-  #confirm if user is a regular admin user (site admin has less access than Super Admin)
-  def site_admin
-  end
-  
- 
-  
-  
-  
+
   
   private
   
@@ -90,9 +60,11 @@ class UsersController < ApplicationController
       end
     end
     
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+    #check and make sure it user is site admin before giving access 
+    def check_role
+      redirect_to(root_url) unless  check_role?("Site Admin")
     end
   
+end
+
 end
