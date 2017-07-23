@@ -13,7 +13,7 @@
     <% @uploads.each do |upload| %>
     <tr>
         <td>
-          <%= link_to upload do %>
+          <%= link_to upload.name.url, target: :_blank do %>
             <%=  File.basename(upload.name.path) %>
           <% end %>
         </td>
