@@ -35,7 +35,7 @@ class UsersController < ApplicationController
       
       @user.send_activation_email
       flash[:info] = "User is activated, they will get an email asking to verify their account"
-      redirect_to admin_user_path
+      redirect_to admin_users_path
     else
       render 'new'
     end
