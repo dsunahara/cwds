@@ -87,7 +87,7 @@ class UploadsController < ApplicationController
     
     #check and make sure it user is site admin before giving access 
     def check_role
-      redirect_to(root_url) unless check_role?("Content Editor") or check_role?("Site Admin")
+      redirect_to(root_url) unless check_role?("Document Editor") or check_role?("Site Admin")
     end
     
     
