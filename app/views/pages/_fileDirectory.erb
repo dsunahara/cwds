@@ -4,26 +4,41 @@
           <th>Title</th>
           <th>Directory</th>
           <th>Created At</th>
+          <th>Delete</th>
         </tr>
       </thead>
       
       <tbody>
         <% @uploads.each do |upload| %>
         <tr>
-            <td>
-              <%= link_to upload do %>
-                <%=  File.basename(upload.name.path) %>
-              <% end %>
-            </td>
-            <td><%= upload.directory %></td>
-            <td><center><%= upload.created_at.strftime("%m-%d-%Y") %></center></td>
+          <td>
+            <%= link_to upload do %>
+              <%=  File.basename(upload.name.path) %>
+            <% end %>
+          </td>
+          <td><%= upload.directory %></td>
+          <td><center><%= upload.created_at.strftime("%m-%d-%Y") %></center></td>
+          <td width="70px;">
+            <%= link_to 'Delete', upload_path(upload), data: {:confirm => 'Are you sure?'}, :method => :delete, :class => "btn btn-danger" %>
+          </td>
         </tr>
         <% end %>
       </tbody>
 </table> 
 
-
-    <%= button_to 'New upload', new_upload_path, :method => :get %>
+<%= link_to "New Upload", new_upload_path, :class => "btn", :remote => true, "data-toggle" => "modal", "data-target" => "my-modal" %>
+<div class="modal hide fade" id="my-modal" title="My modal">
+  <div class="modal-header">
+    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+    <h3 id="myModalLabel">Upload</h3>
+  </div>
+  <div class="modal-body a-unique-class">
+    New Upload
+  </div>
+  <div class="modal-footer">
+    <button aria-hidden="true" class="btn" data-dismiss="modal">Close</button>
+  </div>
+</div>
 
 <script>
   $('table').DataTable();
@@ -69,4 +84,13 @@
     border-image: initial;
 }
 
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background-color: none;
+  border: 1px solid #f1f1f1;
+  background: none;
+}
+
+.btn-danger {
+  text-decoration: none;
+}
 </style>

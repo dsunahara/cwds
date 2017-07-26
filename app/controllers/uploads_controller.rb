@@ -69,7 +69,7 @@ class UploadsController < ApplicationController
   # DELETE /uploads/1
   def destroy
     @upload.destroy
-    redirect_to uploads_url, notice: 'Upload was successfully destroyed.'
+    redirect_to :back, notice: 'File was successfully destroyed.'
   end
  
   private
