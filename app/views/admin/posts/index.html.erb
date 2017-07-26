@@ -25,7 +25,13 @@
               <td><%= post.author %></td>
               <td><%=raw category_links(post.all_categories)%></td>
               <td><%=raw tag_links(post.all_tags)%></td>
-              <td><%= post.publish_time.strftime("%B %d, %Y at %l:%M %p")%> </td>
+              <td>
+                <% if post.publish_time.present? %> 
+                  <%= post.publish_time.strftime("%B %d, %Y at %l:%M %p")%>
+                <% else %>
+                  No Published Time Selected
+                <% end %>
+              </td>
               <td><%= post.created_at%> ago</td>
             </tr>
           <% end %>
