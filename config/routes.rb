@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :pages
     resources :roles, only: [:new, :create, :destroy, :index, :show]# admin/roles
     resources :posts
+    resources :users, only: [:new, :create, :destroy, :index, :show]
   end
   resources :posts  
   
