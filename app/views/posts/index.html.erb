@@ -7,26 +7,28 @@
     <h2>Latest Posts</h2>
     <%end%>
     
-    <% @posts.each do |post| %>
-      <div class="post_wrapper">
-        <h2 class="post-title"><%= link_to post.title, post%></h2>
-        
-        <div class="entry-meta">
-          <i class="fa fa-calendar" aria-hidden="true"></i>
-          <span class="date"><%= post.publish_time.strftime("%B, %d, %Y")%></span>
+    <% if @posts.present? %>
+      <% @posts.each do |post| %>
+        <div class="post_wrapper">
+          <h2 class="post-title"><%= link_to post.title, post%></h2>
+          
+          <div class="entry-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <span class="date"><%= post.publish_time.strftime("%B, %d, %Y")%></span>
+          </div>
+          
+          <div><%=raw post.body%></div>
+          
+          <div class="cat-tags">
+            <i class="fa fa-folder-open" aria-hidden="true"></i>
+            <span class="category"><%=raw category_links(post.all_categories)%></span>
+            <i class="fa fa-tag" aria-hidden="true"></i>
+            <span class="tag"><%=raw tag_links(post.all_tags)%></span>
+          </div>
         </div>
-        
-        <div><%=raw post.body%></div>
-        
-        <div class="cat-tags">
-          <i class="fa fa-folder-open" aria-hidden="true"></i>
-          <span class="category"><%=raw category_links(post.all_categories)%></span>
-          <i class="fa fa-tag" aria-hidden="true"></i>
-          <span class="tag"><%=raw tag_links(post.all_tags)%></span>
-        </div>
-        
-      </div>
-      
+      <%end%>
+    <% else %>
+    <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
     <%end%>
     
       <div align="center">

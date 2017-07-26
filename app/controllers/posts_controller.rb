@@ -24,6 +24,7 @@ class PostsController < ApplicationController
         format.rss { render :layout => false }
       end
     end
+    
   end
   
   def new
