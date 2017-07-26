@@ -10,7 +10,7 @@
     config.fog_directory     =  ENV['S3_BUCKET']
    
     config.fog_public = false
-    config.fog_authenticated_url_expiration = 10
+    config.fog_authenticated_url_expiration = 200
     
   end
 #end
