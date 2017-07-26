@@ -47,6 +47,10 @@ class Post < ApplicationRecord
     Category.find_by_name!(name).posts
   end
   
+  def self.search(search)
+    where("title LIKE ? OR body LIKE ?", "%#{search}%", "%#{search}%") 
+  end
+  
    protected
   def ensure_published_at
     # Set it to current time if none has been specified.
