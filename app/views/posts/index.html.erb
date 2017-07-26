@@ -43,8 +43,8 @@
         <%= text_field_tag :search, params[:search], placeholder: "Search Posts", class: 'form-control' %>
         <span class="input-group-btn">
           <%= button_tag(type: "search", class: "btn btn-default") do %>
-    Search Posts <i class="icon-repeat"></i>
-<% end %>
+             <i class="icon-repeat">Search</i>
+          <% end %>
         </span>
     <% end %>
 
@@ -80,7 +80,7 @@
 
 <style>
   .input-group .form-control {
-    width: 67%;
+    width: 75%;
   }
   
   .usa-button, .usa-button-primary, .usa-button:visited, .usa-button-primary:visited, button, [type="button"], [type="submit"], [type="reset"], [type="image"] {
