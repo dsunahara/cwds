@@ -1,6 +1,6 @@
 
 <main class="usa-grid usa-section" id="main-content">
-   <div class="usa-width-two-thirds">
+   <div class="usa-width-three-fourths">
       <h1> 
         <%= @post.title %>
       </h1>
@@ -29,7 +29,16 @@
       <%end%>
    </div>
    
-   <div class = "usa-width-one-third">
+   <div class = "usa-width-one-fourth">
+    <div class="input-group">
+      <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Posts", class: 'form-control' %>
+        <span class="input-group-btn">
+          <%= button_tag(type: "search", class: "btn btn-default") do %>
+             <i class="icon-repeat">Search</i>
+          <% end %>
+        </span>
+    <% end %>   
     <h4><i class="fa fa-newspaper-o" aria-hidden="true"></i> RECENT POST</h4>
     <div class="widget">
       <ul class>
@@ -58,3 +67,22 @@
     
 </main>
 
+<style>
+      .input-group .form-control {
+    width: 71%;
+  }
+  
+  .usa-button, .usa-button-primary, .usa-button:visited, .usa-button-primary:visited, button, [type="button"], [type="submit"], [type="reset"], [type="image"] {
+    margin-top: .2em;
+  }
+  
+  .btn-default {
+    color: #000;
+    background-color: #f1f1f1;
+    border-color: #ccc;
+  }
+  
+  .usa-button:hover, .usa-button.usa-button-hover, .usa-button-primary:hover, .usa-button-primary.usa-button-hover, .usa-button:visited:hover, .usa-button:visited.usa-button-hover, .usa-button-primary:visited:hover, .usa-button-primary:visited.usa-button-hover, button.usa-button-hover, [type="button"]:hover, [type="button"].usa-button-hover, [type="submit"]:hover, [type="submit"].usa-button-hover, [type="reset"]:hover, [type="reset"].usa-button-hover, [type="image"]:hover, [type="image"].usa-button-hover {
+    
+  }
+</style>
