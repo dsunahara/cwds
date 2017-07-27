@@ -48,7 +48,7 @@ class Post < ApplicationRecord
   end
   
   def self.search(search)
-    where("title LIKE ? OR body LIKE ?", "%#{search}%", "%#{search}%") 
+    where("title ILIKE ? OR body ILIKE ?", "%#{search}%", "%#{search}%") 
   end
   
    protected
