@@ -16,7 +16,7 @@ class PostsController < ApplicationController
       @posts = Post.categorized_with(params[:category]).order('publish_time DESC').paginate(page: params[:page], per_page: 10)
       @title = params[:category].titleize
     elsif params[:search]
-      @posts = Post.search(params[:search]).order("created_at DESC").paginate(page: params[:page], per_page: 10) 
+      @posts = Post.search(params[:search]).where("publish_time").order("publish_time DESC").paginate(page: params[:page], per_page: 10) 
     else
      @posts = Post.published.order('publish_time DESC').paginate(page: params[:page], per_page: 10)
        respond_to do |format|
