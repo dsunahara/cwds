@@ -50,7 +50,7 @@ class UploadsController < ApplicationController
     
     @upload = Upload.new(post_upload_params)
     if @upload.save
-      redirect_to uploads_url, notice: 'Upload was successfully created.'
+      redirect_to :back, notice: 'Upload was successfully created.'
     else
       render :new
     end
