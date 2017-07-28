@@ -4,7 +4,7 @@
           <th>Title</th>
           <th>Directory</th>
           <th>Created At</th>
-          <th>Delete</th>
+          <% if check_role?("Site Admin") or check_role?("Document Editor") %><th>Delete</th><%end%>
         </tr>
       </thead>
       
@@ -18,16 +18,21 @@
           </td>
           <td><%= upload.directory %></td>
           <td><center><%= upload.created_at.strftime("%m-%d-%Y") %></center></td>
+           <% if check_role?("Site Admin") or check_role?("Document Editor") %>
           <td width="70px;">
             <%= link_to 'Delete', upload_path(upload), data: {:confirm => 'Are you sure?'}, :method => :delete, :class => "btn btn-danger" %>
           </td>
+          <%end%>
         </tr>
         <% end %>
       </tbody>
 </table> 
 
 <!-- Button trigger modal -->
+ <% if check_role?("Site Admin") or check_role?("Document Editor") %>
 <%= link_to "Upload Document", "#myModal", :class => "btn btn-primary", "data-toggle" => "modal" %>
+<%end%>
+
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
