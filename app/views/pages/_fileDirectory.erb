@@ -12,7 +12,7 @@
         <% @uploads.each do |upload| %>
         <tr>
           <td>
-            <%= link_to upload do %>
+            <%= link_to upload.name.url, target: :_blank do %>
               <%=  File.basename(upload.name.path) %>
             <% end %>
           </td>
@@ -26,17 +26,62 @@
       </tbody>
 </table> 
 
-<%= link_to "New Upload", new_upload_path, :class => "btn", :remote => true, "data-toggle" => "modal", "data-target" => "my-modal" %>
-<div class="modal hide fade" id="my-modal" title="My modal">
-  <div class="modal-header">
-    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
-    <h3 id="myModalLabel">Upload</h3>
-  </div>
-  <div class="modal-body a-unique-class">
-    New Upload
-  </div>
-  <div class="modal-footer">
-    <button aria-hidden="true" class="btn" data-dismiss="modal">Close</button>
+<!-- Button trigger modal -->
+<%= link_to "Upload Document", "#myModal", :class => "btn btn-primary", "data-toggle" => "modal" %>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Upload Document</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(@upload) do |f| %>
+        <% if @upload.errors.any?  %>
+          <div>
+            <h2><%= pluralize(@upload.errors.count, "error") %> prevented from saving</h2>
+            <ul>
+              <% @post.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+              <%end%>
+            </ul>
+          </div>
+        <%end%>
+      
+        <div>
+          <%= f.label :name %><br>
+          <%= f.file_field :name %>
+        </div>
+        <div id="directory-option">
+          <%= f.label :directory, 'Select Existing Directory' %> <br>
+          <%= f.select :directory, options_for_select(@upload_paths.map { |obj| [obj, obj] }, :selected => 'general') %>
+        </div>
+        
+        <div id="directory-new">
+           <%= f.label :new_directory  %> <br>
+           <%= text_field_tag 'new_directory', nil, placeholder: 'Enter a new directory' %>
+        </div>
+        
+        <div id="directory-new-btn">
+          <a href="#" class="btn btn-warning">Create New Directory</a>
+        </div>
+        
+        <div id="directory-cancel-btn">
+          <a href="#" class="btn btn-warning">Cancel</a>
+        </div>
+        
+        <div id="submit">
+          <%= f.submit "Upload" %>
+        </div>
+      <% end %>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -47,20 +92,8 @@
 // http://www.sitepoint.com/responsive-data-tables-comprehensive-list-solutions
 </script>
 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-<!-- Include jQuery Popup Overlay -->
-<script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
-
-<script>
-  $(document).ready(function() {
-
-    // Initialize the plugin
-    $('#my_popup').popup();
-
-  });
-</script>
-  
 <style>
   .dataTables_wrapper .dataTables_paginate .paginate_button {
 
@@ -93,4 +126,53 @@
 .btn-danger {
   text-decoration: none;
 }
+
+.btn-danger a:visited {
+  color: none;
+}
+
+.btn-primary {
+  text-decoration: none;
+}
+
+.btn-warning {
+  text-decoration: none;
+}
+
+.modal {
+  z-index: 9999;
+}
+
+.usa-nav {
+  z-index: 1000;
+}
+
+select {
+  -webkit-appearance: none;
+}
 </style>
+
+<script>
+ $(document).ready(function() {
+
+ $('#directory-new').hide(); //Initially form wil be hidden.
+ $('#directory-cancel-btn').hide(); //Initially form wil be hidden.
+
+  $('#directory-new-btn').click(function() {
+   $('#directory-new').show();//Form shows on button click
+   $('#directory-option').hide();
+   $('#directory-new-btn').hide();
+   $('#directory-cancel-btn').show();
+    return false;
+   });
+   
+   $('#directory-cancel-btn').click(function() {
+    $('#directory-option').show();
+    $('#directory-new-btn').show();
+    $('#directory-cancel-btn').hide();
+    $('#directory-new').hide();
+    return false;
+   });
+   
+ });
+</script>
