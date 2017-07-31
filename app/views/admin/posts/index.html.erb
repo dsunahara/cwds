@@ -10,7 +10,7 @@
           <th>Categories</th>
           <th>Tags</th>
           <th>Published on</th>
-          <th>Created on</th>
+          <th>Published on</th>
         </tr>
         </thead>
       
@@ -32,7 +32,7 @@
                   No Published Time Selected
                 <% end %>
               </td>
-              <td><%= post.created_at%> ago</td>
+              <td><%= post.publish_time%> ago</td>
             </tr>
           <% end %>
         </tbody>
