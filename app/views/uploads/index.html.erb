@@ -7,6 +7,7 @@
       <th>Directory</th>
       <th>Created At</th>
       <th>Delete</th>
+      <th>Created At Hidden</th>
     </tr>
   </thead>
   
@@ -24,6 +25,7 @@
       <td width="70px;">
         <%= link_to 'Delete', upload_path(upload), data: {:confirm => 'Are you sure?'}, :method => :delete, :class => "btn btn-danger" %>
       </td>
+      <td><%= upload.created_at %></td>
   </tr>
     <% end %>
 
@@ -38,7 +40,11 @@
 <script>
 $(document).ready(function() {
   var table = $('#table_uploads').dataTable( {
-    "order": [ 1, 'asc' ],
+    "order": [ 2, 'desc' ],
+    "columnDefs": [
+      { "orderData": 2, "targets": 4 },
+      { "targets": 4, visible: false}
+    ]
   } );
 } );
 
