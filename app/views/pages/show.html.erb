@@ -3,8 +3,12 @@
     <%= raw @page.body %>
     
     
-    <% if @page.fileDirectory == true %>
+    <% if @page.template == "File Directory" %>
      <%= render 'fileDirectory', page: @page %>
+    <%end%>
+    
+     <% if @page.template == "Training Portal" %>
+     <%= render 'trainingPortal', page: @page %>
     <%end%>
     
   

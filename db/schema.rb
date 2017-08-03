@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630214250) do
+ActiveRecord::Schema.define(version: 20170803180623) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "user_id"
@@ -52,11 +52,11 @@ ActiveRecord::Schema.define(version: 20170630214250) do
     t.string   "title"
     t.text     "body"
     t.string   "slug"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean  "private"
-    t.boolean  "fileDirectory", default: false
     t.string   "fileFolder"
+    t.string   "template"
   end
 
   create_table "posts", force: :cascade do |t|
