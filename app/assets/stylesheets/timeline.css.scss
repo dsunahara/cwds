@@ -27,7 +27,7 @@
 $background: #f7f7f7;
 $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
 $border: 1px solid rgba(191, 191, 191, 0.4);
-$items: 5;
+$items: 9;
 $rows: ceil($items/2);
 
 /* Card sizing */
@@ -213,7 +213,7 @@ $counter: $items - $rows + 2;
         padding-bottom: 6px;
         line-height: 1rem;
         @include mq-sm {
-          font-size: 165%;
+          font-size: 100%;
           line-height: 1.2rem;
         }
         span {
