@@ -48,52 +48,48 @@
         </div>
       </div>
     </div>
-          
+
     <div class="panel panel-default">
       <div class="panel-heading">
-        <i class="fa fa-folder-open" aria-hidden="true"></i> File Manager Module
+        <i class="fa fa-folder-open" aria-hidden="true"></i> Template
       </div>
       <div class="panel-body">
-        
         <br>
-        <div class="btn-group" id="directory-module" data-toggle="buttons">
-          <div class="btn btn-primary <%= 'active' if @page.fileDirectory == false %>" id="directoryDisabled">Disabled
-          <%= f.radio_button :fileDirectory, false%>
-          </div> 
-          <div class="btn btn-primary <%= 'active' if @page.fileDirectory == true %>" id="directoryEnabled">Enabled
-          <%= f.radio_button :fileDirectory, true %>
-          </div> 
-        </div>
-
+        <%= f.select :template, ['Default','File Directory','Training Portal'], :id => "templateOptions" %>
         <div id="directory-folder">
           <%= f.label :fileFolder, "Enter Default Folder" %>
           <%= f.text_field :fileFolder %>
         </div>
-      </div>
-    </div>        
-    
+      </div>     
+    </div>
   </div>
 </main>
 <% end %>
 
 <script>
-$(document).ready(function() {
-  var directory = <%= @page.fileDirectory %>
-  if (directory == true) {
+
+
+$(document).ready( function () {
+  var t = "<%= @page.template %>"
+  if (t == "File Directory") {
     $('#directory-folder').show();
   } else {
     $('#directory-folder').hide();
   }
   
-  $("#directoryDisabled").click(function(){
-      $('#directory-folder').hide();
-  });
-  $("#directoryEnabled").click(function(){
-      $('#directory-folder').show();
-  });
-})
+  $("#page_template").change(function() {
+    var val = $(this).val();
 
+    if(val === "File Directory") {
+      $("#directory-folder").show();
+    }
+    else {
+      $("#directory-folder").hide();
+    }
+  });
+});
 </script>
+
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
