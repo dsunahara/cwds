@@ -15,7 +15,7 @@
     <% @uploads.each do |upload| %>
     
     <tr>
-      <td>
+      <td width="65%;">
         <%= link_to upload.name.url, target: :_blank do %>
           <%=  File.basename(upload.name.path) %>
         <% end %>
@@ -51,6 +51,13 @@ $(document).ready(function() {
 </script>
 
 <style>
+
+  table td {
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+  }
+  
   .dataTables_wrapper .dataTables_paginate .paginate_button {
 
     padding: 0;

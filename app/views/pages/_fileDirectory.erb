@@ -1,3 +1,4 @@
+<main class="usa-grid usa-section" id="main-content">
 <table id="table_uploads" class="table-bordered dt-responsive">
       <thead>
         <tr>
@@ -13,7 +14,7 @@
       <tbody>
         <% @uploads.each do |upload| %>
         <tr>
-          <td>
+          <td width="65%;">
             <%= link_to upload.name.url, target: :_blank do %>
               <%=  File.basename(upload.name.path) %>
             <% end %>
@@ -91,17 +92,29 @@
     </div>
   </div>
 <% end %>
+</main>
 
 <script>
-  $('table').DataTable();
+$(document).ready(function() {
+  var table = $('#table_uploads').dataTable( {
+    "order": [ 2, 'desc' ],
+    "columnDefs": [
 
-// See:
-// http://www.sitepoint.com/responsive-data-tables-comprehensive-list-solutions
+    ]
+  } );
+} );
+
 </script>
-
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
+
+  table td {
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+  }
+  
   .dataTables_wrapper .dataTables_paginate .paginate_button {
 
     padding: 0;
