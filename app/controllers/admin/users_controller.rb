@@ -3,7 +3,7 @@ module Admin
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  before_action :check_role, only: [:show, :edit, :update, :destroy, :index]
+  before_action :check_role, only: [:show, :edit, :update, :destroy]
   
   def index
      #Show All Users and page them
