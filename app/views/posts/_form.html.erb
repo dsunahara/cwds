@@ -40,6 +40,12 @@
             </div> 
           </div>
           <br>
+          <%= f.label :author %><br />
+          
+          <%= f.select :author, options_for_author, {}, prompt: 'Select One' %>
+            
+          
+          <br>
           <%= f.label :publish_time %><br />
           <div class="form-group">
               <div class='input-group date' id='datetimepicker1'>

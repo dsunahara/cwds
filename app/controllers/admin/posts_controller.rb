@@ -11,6 +11,7 @@ module Admin
     
     def new
       @post = Post.new
+      
     end
     
     private

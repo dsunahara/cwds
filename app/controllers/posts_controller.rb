@@ -29,6 +29,7 @@ class PostsController < ApplicationController
   
   def new
     @post = Post.new
+    @users = User.joins(:roles).where('roles.name = "News Editor"')
   end
   
   def create 
@@ -46,6 +47,7 @@ class PostsController < ApplicationController
   
   def edit
     @post = Post.find_by_slug(params[:id])
+     @users = User.joins(:roles).where('roles.name = "News Editor"')
   end
   
   def update
@@ -79,7 +81,7 @@ class PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:title, :body, :all_tags, :all_categories, :status, :publish_time, :slug)
+    params.require(:post).permit(:title, :body, :all_tags, :all_categories, :status, :publish_time, :slug, :author)
   end
   #check and make sure it user is site admin before giving access 
         def check_role
