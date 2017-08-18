@@ -18,7 +18,7 @@ module PostsHelper
   
   def options_for_author
   
-  User.joins(:roles).where('roles.name = "News Editor"').map(&:name)
+  User.joins(:roles).where("roles.name = 'News Editor'").map(&:name)
   end
   
 end
