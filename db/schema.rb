@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20170807215305) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "assignments", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["role_id"], name: "index_assignments_on_role_id"
-    t.index ["user_id"], name: "index_assignments_on_user_id"
+    t.index ["role_id"], name: "index_assignments_on_role_id", using: :btree
+    t.index ["user_id"], name: "index_assignments_on_user_id", using: :btree
   end
 
   create_table "categories", force: :cascade do |t|
@@ -32,8 +35,8 @@ ActiveRecord::Schema.define(version: 20170807215305) do
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["category_id"], name: "index_categorizes_on_category_id"
-    t.index ["post_id"], name: "index_categorizes_on_post_id"
+    t.index ["category_id"], name: "index_categorizes_on_category_id", using: :btree
+    t.index ["post_id"], name: "index_categorizes_on_post_id", using: :btree
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -45,7 +48,7 @@ ActiveRecord::Schema.define(version: 20170807215305) do
     t.integer  "height"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.index ["type"], name: "index_ckeditor_assets_on_type"
+    t.index ["type"], name: "index_ckeditor_assets_on_type", using: :btree
   end
 
   create_table "events", force: :cascade do |t|
@@ -90,8 +93,8 @@ ActiveRecord::Schema.define(version: 20170807215305) do
     t.integer  "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_taggings_on_post_id"
-    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["post_id"], name: "index_taggings_on_post_id", using: :btree
+    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
   end
 
   create_table "tags", force: :cascade do |t|
@@ -121,7 +124,13 @@ ActiveRecord::Schema.define(version: 20170807215305) do
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.string   "last_name"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "assignments", "roles"
+  add_foreign_key "assignments", "users"
+  add_foreign_key "categorizes", "categories"
+  add_foreign_key "categorizes", "posts"
+  add_foreign_key "taggings", "posts"
+  add_foreign_key "taggings", "tags"
 end
