@@ -1,4 +1,4 @@
-class RemoveFileDirectoryToPages < ActiveRecord::Migration[5.0]
+class RemoveFileDirectoryToPages < ActiveRecord::Migration[5.1]
   def change
     remove_column :pages, :fileDirectory, :boolean
   end

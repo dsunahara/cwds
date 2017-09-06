@@ -1,4 +1,4 @@
-class AddMissingTimestamps < ActiveRecord::Migration[5.0]
+class AddMissingTimestamps < ActiveRecord::Migration[5.1]
   def change
     
       add_column(:uploads, :created_at, :datetime)

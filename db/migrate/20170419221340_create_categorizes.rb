@@ -1,4 +1,4 @@
-class CreateCategorizes < ActiveRecord::Migration[5.0]
+class CreateCategorizes < ActiveRecord::Migration[5.1]
   def change
     create_table :categorizes do |t|
       t.belongs_to :post, foreign_key: true
