@@ -6,24 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create!(name:  "SuperUser",
-             last_name: "Leung",
-             email: "Andy.Leung@osi.ca.gov",
+             last_name: "Admin",
+             email: "admin@osi.ca.gov",
              password:              "password",
              password_confirmation: "password",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
 
-50.times do |n|
-  name  = Faker::Name.name
-  last_name = Faker::Name.last_name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
-  User.create!(name:  name,
-                last_name: last_name,
-               email: email,
-               password:              password,
-               password_confirmation: password,
-               activated: true,
-               activated_at: Time.zone.now)
-end
+User.first.roles << Role.new(name: "Site Admin")
+
+Page.create!(title: "Home",
+            body: "homepage",
+            slug: "home")
