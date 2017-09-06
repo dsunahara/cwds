@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'rails'
+gem 'rails', '~> 5.1'
 gem 'font-awesome-rails'
 gem 'bcrypt'
 gem 'faker'
