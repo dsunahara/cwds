@@ -421,7 +421,7 @@ DEPENDENCIES
   momentjs-rails (>= 2.9.0)
   pg (= 0.18.4)
   puma
-  rails
+  rails (~> 5.1)
   rails-controller-testing (= 0.1.1)
   sass-rails
   spring (= 1.7.2)
