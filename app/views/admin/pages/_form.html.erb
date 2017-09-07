@@ -1,4 +1,15 @@
  <%= form_for(["admin", @page]) do |f| %>
+ <% if @page.errors.any?  %>
+    <div>
+      <h2><%= pluralize(@page.errors.count, "error") %> prevented from saving</h2>
+      <ul>
+        <% @page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <%end%>
+      </ul>
+    </div>
+  <%end%>
+ 
   <main id="main-content">
     <div class="usa-width-three-fourths">
       <div class="field">
