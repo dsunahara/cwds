@@ -1,0 +1,44 @@
+<%= form_tag(wikiSearch_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Wiki", class: 'form-control' %>
+        <span class="input-group-btn">
+          <%= button_tag(type: "search", class: "btn btn-default") do %>
+             <i class="icon-repeat">Search</i>
+          <% end %>
+        </span>
+    <% end %>
+  
+
+
+  <style>
+      /* SEARCH FIELD */
+.searchfield {
+ 	padding: 20px 20px 40px 20px;
+ 	background: #f5f5f5;
+	overflow: auto;
+	text-align: center;
+}
+.searchfield input{
+	width: 50%;
+	border: 1px solid #c6c6c6;
+	height: 50px;
+	padding: 0px 25px 0px 50px;
+	font-size: 20px;
+	color: #5b5b5b;
+	background: #ffffff url(../images/search.png) no-repeat scroll 10px 14px;
+	margin: 0 auto;
+}
+.buttonsearch {
+	display: inline-block;
+	border-radius: 0;
+	margin-left: -3px;
+	margin-top: -6px;
+	height: 50px;
+}
+input.search {
+	min-width: 100px;
+}
+.search-row {
+	padding: 0px 50px 0px 50px;
+}
+
+  </style>
