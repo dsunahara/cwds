@@ -1,0 +1,12 @@
+<main class="usa-grid usa-section" id="main-content">
+  <% if @wiki.present? %>
+    <% @wiki.each do |wiki| %>
+      <div class="post_wrapper">
+        <h2 class="post-title"><%= link_to wiki.title, wiki%></h2>
+        <%= highlight(excerpt(wiki.body, params[:search], radius: 300), params[:search]) %>
+      </div>
+    <%end%>
+  <% else %>
+    <p>There are no plans containing the term(s) <%= params[:search] %>.</p>
+  <%end%>
+</main>

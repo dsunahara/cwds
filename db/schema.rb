@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807215305) do
+ActiveRecord::Schema.define(version: 20170817181639) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "user_id"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20170807215305) do
     t.boolean  "private"
     t.string   "fileFolder"
     t.string   "template"
+    t.text     "wikiNav"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -103,8 +104,8 @@ ActiveRecord::Schema.define(version: 20170807215305) do
   create_table "uploads", force: :cascade do |t|
     t.string   "name"
     t.string   "directory"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", default: '2017-06-14 23:39:15', null: false
+    t.datetime "updated_at", default: '2017-06-14 23:39:15', null: false
   end
 
   create_table "users", force: :cascade do |t|
