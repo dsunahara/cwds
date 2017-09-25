@@ -15,6 +15,8 @@
           <div class="entry-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i>
             <span class="date"><%= post.publish_time.strftime("%B, %d, %Y")%></span>
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span class="date"><%= post.author%></span>
           </div>
           
           <div><%=raw post.body%></div>

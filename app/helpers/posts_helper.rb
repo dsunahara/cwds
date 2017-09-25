@@ -16,4 +16,8 @@ module PostsHelper
     end
   end
   
+  def options_for_author
+    User.joins(:roles).where("roles.name = 'News Editor'").map{|p| "#{p.name} #{p.last_name}"}
+  end
+  
 end
