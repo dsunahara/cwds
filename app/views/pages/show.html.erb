@@ -1,7 +1,17 @@
 <main class="usa-grid usa-section" id="main-content">
   
-    <%= raw @page.body %>
+<div class="wrap">
+  <div>
+   <%= raw @page.body %>
+  </div>
     
+  <% if @page.template == "Wiki" %>
+   <div class="wiki-float">
+    <%= raw @page.wikiNav %>
+   </div> 
+  <%end%>
+    
+</div>    
     
     <% if @page.template == "File Directory" %>
      <%= render 'fileDirectory', page: @page %>
@@ -11,7 +21,42 @@
      <%= render 'trainingPortal', page: @page %>
     <%end%>
     
+    <% if @page.slug == "wiki" %>
+     <%= render 'wikiHome', page: @page %>
+    <%end%>
   
   <%# <%= link_to 'Edit', edit_admin_page_path(@page) %>
   <%# <%= link_to 'Back', admin_pages_path %>
 </main>
+
+<style>
+ .wiki-float {
+  border: 1px solid #a2a9b1;
+  background-color: #f8f9fa;
+  padding: 10px;
+  font-size: 90%;
+  position: fixed;
+  middle: 0px;
+    right: 0px;
+ }
+ 
+ .wiki-wrap {
+  border: 1px solid #a2a9b1;
+  background-color: #f8f9fa;
+  padding: 10px;
+  font-size: 90%;
+  width: 100%;
+  height: 100%;
+  margin: 0 0 0 15px;
+  padding-bottom: 20px;
+ }
+ 
+.content-box {
+ background-color: #bfbfbf;
+}
+
+.wrap {
+ display: flex;
+ justify-content: space-between;
+}
+</style>
