@@ -10,6 +10,7 @@ class PagesController < ApplicationController
 
    @upload = Upload.new
    @uploads = Upload.where("directory like ?", "%#{Page.find_by_slug(params[:id]).fileFolder}%")
+   @pmplan = Page.where(template: "Wiki")
    
     u = Upload.all
     @upload_paths = u.map { 
@@ -35,7 +36,6 @@ class PagesController < ApplicationController
       @wiki = Page.search(params[:search]).where(template: "Wiki").paginate(page: params[:page], per_page: 10) 
     end  
   end
-  
   
   def private_page?
    @page = Page.find_by_slug(params[:id])
