@@ -21,7 +21,6 @@
 //= require dataTables/jquery.dataTables
 //= require moment
 //= require bootstrap-datetimepicker
-
 //= require uswds
 
 //= require fullcalendar
