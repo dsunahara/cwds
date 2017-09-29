@@ -1,8 +1,7 @@
+  
 
-
-    
-  <% if @page.template == "Wiki" %>
-  <script>
+<% if @page.template == "Wiki" %>
+<script>
    $(document).ready(function() {
       $('body').hide();
       $(window).on('load', function() {
@@ -102,7 +101,6 @@
 }
 
 .panel {
-  text-align: center;
   padding-top: 5px;
   min-height: 100%;
 }
