@@ -14,13 +14,12 @@
   <nav id="menu" class="menu">
    <%= raw @page.wikiNav %>
   </nav>
-  
- <%end%>
  
  
 <header class="fixed-header">
   <button class="btn-hamburger js-slideout-toggle">Glossary</button>
 </header>
+<%end%>
 <div id="main" class="panel"> 
 <main class="usa-grid usa-section" id="main-content">
   <%= raw @page.body %>
@@ -54,12 +53,11 @@
 }
 
 .menu {
-  background-color: #1D1F20;
-  background-image: linear-gradient(145deg, #1D1F20, #404348);
+  background-color: #F1F1F1;
 }
 
 .menu a {
-  color: #fff;
+  color: #0071bc;
 }
 
 .menu a:hover {
@@ -229,6 +227,8 @@
   z-index: 9999;
   width: 256px;
   display: none;
+  font-size: 14px;
+  padding: 14px;
   overflow-y: scroll;
 }
 
