@@ -1,32 +1,20 @@
-  
+ <% if @page.template == "Wiki" %>
 
-<% if @page.template == "Wiki" %>
-<script>
-   $(document).ready(function() {
-      $('body').hide();
-      $(window).on('load', function() {
-          $('body').show();
-      });
-  });
-  </script>
   
   <nav id="menu" class="menu">
    <%= raw @page.wikiNav %>
   </nav>
- 
  
 <header class="fixed-header">
   <button class="btn-hamburger js-slideout-toggle">Glossary</button>
 </header>
 <%end%>
 <div id="main" class="panel"> 
-<main class="usa-grid usa-section" id="main-content">
+ <main class="usa-grid usa-section" id="main-content">
   <%= raw @page.body %>
   </main>
 </div>
 
-  
-    
     <% if @page.template == "File Directory" %>
      <%= render 'fileDirectory', page: @page %>
     <%end%>
@@ -63,43 +51,6 @@
   text-decoration: underline;
 }
 
-.menu-header {
-  border-bottom: 1px solid #2a2d2f;
-  padding: 20px;
-  background-size: 32px;
-}
-
-.menu-header-title {
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  margin: 0;
-}
-
-.menu-section {
-  margin: 25px 0;
-}
-
-.menu-section-title {
-  text-transform: uppercase;
-  color: #85888d;
-  font-weight: 200;
-  font-size: 13px;
-  letter-spacing: 1px;
-  padding: 0 20px;
-  margin:0;
-}
-
-.menu-section-list {
-  padding:0;
-  margin: 10px 0;
-  list-style:none;
-}
-
-.menu-section-list a {
-  display: block;
-  padding: 10px 20px;
-}
-
 .panel {
   padding-top: 5px;
   min-height: 100%;
@@ -114,20 +65,6 @@
   top: 70px;
 }
 
-/**
- * Header
- */
-.panel-header {
-  margin: 120px auto 55px;
-}
-
-.title {
-  font-size: 3.2em;
-  line-height: 1em;
-  margin: 0 0 15px;
-  color: #4B5;
-  font-weight: 400;
-}
 
 /**
  * hamburger
@@ -136,7 +73,6 @@
   position: fixed;
   width: 10%;
   height: 50px;
-  backface-visibility: hidden;
   z-index: 2;
   margin: 0 0 0 10px;
 }
@@ -174,17 +110,6 @@
   bottom: -50px;
 }
 
-.box-title {
-  margin: 0;
-  padding:10px 20px;
-  font-size: 1.2em;
-  font-weight: 400;
-}
-
-.box-content {
-  padding:20px;
-}
-
 /**
  * Medium Screens
  */
@@ -194,15 +119,6 @@
     top: 20px;
     left: 30px;
     width: auto;
-  }
-
-  .panel-header {
-    margin-top: 40px;
-    width: 455px;
-  }
-
-  .title {
-    font-size: 4.2em;
   }
 }
 
@@ -251,7 +167,7 @@
 
 </style>
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.js"></script>
     <script>
 var slideout = new Slideout({
   'panel': document.getElementById('main'),
@@ -288,3 +204,30 @@ slideout.on('close', function () {
   fixed.style.transition = '';
 });
     </script>
+ 
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
