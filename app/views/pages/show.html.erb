@@ -1,210 +1,109 @@
- <% if @page.template == "Wiki" %>
-
-  
-  <nav id="menu" class="menu">
-   <%= raw @page.wikiNav %>
-  </nav>
- 
-<header class="fixed-header">
-  <button class="btn-hamburger js-slideout-toggle">Glossary</button>
-</header>
+<% if @page.template == "Wiki" %>
+  <div class="wiki-sidebar-container">
+    <div class="wiki-sidebar-title"><a class="wiki-title" href="#">X Close Menu</a></div>
+    <div class="wiki-sidebar">
+        <%= raw @page.wikiNav %>
+    </div>    
+  </div>  
+  <div class="wiki-button">
+    <button>Glossary</button>
+  </div>
 <%end%>
-<div id="main" class="panel"> 
- <main class="usa-grid usa-section" id="main-content">
-  <%= raw @page.body %>
-  </main>
-</div>
 
-    <% if @page.template == "File Directory" %>
-     <%= render 'fileDirectory', page: @page %>
-    <%end%>
-    
-     <% if @page.template == "Training Portal" %>
-     <%= render 'trainingPortal', page: @page %>
-    <%end%>
-    
-    <% if @page.slug == "wiki" %>
-     <%= render 'wikiHome', page: @page %>
-    <%end%>
+<main class="usa-grid usa-section" id="main-content">
+<%= raw @page.body %>
+</main>
+
+  <% if @page.template == "File Directory" %>
+  <%= render 'fileDirectory', page: @page %>
+  <%end%>
+  
+  <% if @page.template == "Training Portal" %>
+  <%= render 'trainingPortal', page: @page %>
+  <%end%>
+  
+  <% if @page.slug == "wiki" %>
+  <%= render 'wikiHome', page: @page %>
+  <%end%>
   
   <%# <%= link_to 'Edit', edit_admin_page_path(@page) %>
   <%# <%= link_to 'Back', admin_pages_path %>
 </main>
 
-
 <style>
-
- body,
-.panel {
-  background-color: #fff;
-}
-
-.menu {
-  background-color: #F1F1F1;
-}
-
-.menu a {
-  color: #0071bc;
-}
-
-.menu a:hover {
-  text-decoration: underline;
-}
-
-.panel {
-  padding-top: 5px;
-  min-height: 100%;
-}
-
-#mocha {
-  text-align: left;
-  margin:0 !important;
-}
-
-#mocha-stats {
-  top: 70px;
-}
-
-
-/**
- * hamburger
- */
-.fixed-header {
-  position: fixed;
-  width: 10%;
-  height: 50px;
-  z-index: 2;
-  margin: 0 0 0 10px;
-}
-
-.btn-hamburger {
-  position: static;
-  height: 40px;
-}
-
-/**
- * Boxes
- */
-.box {
-  border-radius: 4px;
-  text-align: left;
-  margin: 50px 10px;
-  position: relative;
-}
-
-.box:before,
-.box:after {
-  content: ' ';
-  display: inline-block;
-  width: 1px;
-  height: 50px;
-  position: absolute;
-  left: 50%;
-}
-
-.box:before {
-  top: -50px;
-}
-
-.box:after {
-  bottom: -50px;
-}
-
-/**
- * Medium Screens
- */
-@media all and (min-width:40em) {
-
-  .btn-hamburger {
-    top: 20px;
-    left: 30px;
-    width: auto;
+  
+  .wiki-sidebar-container {
+    float: right;
+    margin-top: 0;
+    position:fixed;
+    right:0;
+    top:0;
+    height: 100%;
+    z-index: 9999;
   }
-}
-
-/**
- * Large Screens
- */
-@media all and (min-width: 54em) {
-  .box {
-    max-width: 1200px;
-    margin: 50px auto;
+  
+  .wiki-sidebar {
+    float: right;
+    height: 100%;
+    background: #f1f1f1;
+    font-size: 14px;
+    width: 255px;
+    padding: 15px;
+    overflow: scroll;
   }
-}
-
-.slideout-menu {
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 9999;
-  width: 256px;
-  display: none;
-  font-size: 14px;
-  padding: 14px;
-  overflow-y: scroll;
-}
-
-.slideout-panel {
-  position: relative;
-  z-index: 1;
-  will-change: transform;
-}
-
-.slideout-open,
-.slideout-open body,
-.slideout-open .slideout-panel {
-  overflow: hidden;
-}
-
-.slideout-open .slideout-menu {
-  display: block;
-}
-
-.slideout-menu { right: auto; }
-      .btn-hamburger { right: auto; right: 12px; width: auto;}
-
-</style>
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.js"></script>
-    <script>
-var slideout = new Slideout({
-  'panel': document.getElementById('main'),
-  'menu': document.getElementById('menu'),
-  'padding': 256,
-  'tolerance': 70
-});
-
-document.querySelector('.js-slideout-toggle').addEventListener('click', function() {
-  slideout.toggle();
-});
-
-var fixed = document.querySelector('.fixed-header');
-
-slideout.on('translate', function(translated) {
-  fixed.style.transform = 'translateX(' + translated + 'px)';
-});
-
-slideout.on('beforeopen', function () {
-  fixed.style.transition = 'transform 300ms ease';
-  fixed.style.transform = 'translateX(256px)';
-});
-
-slideout.on('beforeclose', function () {
-  fixed.style.transition = 'transform 300ms ease';
-  fixed.style.transform = 'translateX(0px)';
-});
-
-slideout.on('open', function () {
-  fixed.style.transition = '';
-});
-
-slideout.on('close', function () {
-  fixed.style.transition = '';
-});
-    </script>
  
+   .wiki-sidebar-title {
+     width: 120%;
+     height: 45px;
+     background: #0071bc;
+     color: #ffffff;
+     padding: 12px 0 0 15px;
+   }
+  
+  a.wiki-title {
+    text-decoration: none;
+    color: #fff;
+  } 
+  a.wiki-title:visited {
+    color: #fff;
+  }
+  
+  a.wiki-title:hover {
+    color: #f1f1f1;
+    text-decoration: underline;
+  }
+   
+   .wiki-button {
+     position: fixed;
+     margin: 10px;
+     right: 0;
+   }
+</style>
+
+<script>
+  $(document).ready(function() {
+   $('.wiki-sidebar-container').hide();
+   
+   $('.wiki-button').click(function() {
+   $('.wiki-sidebar-container').show();
+   $('.wiki-button').hide();
+    return false;
+   });
+   
+   $('body').click(function() {
+    $('.wiki-sidebar-container').hide();
+    $('.wiki-button').show();
+    return false;
+   });
+   
+   $('.wiki-title').click(function() {
+    $('.wiki-sidebar-container').hide();
+    $('.wiki-button').show();
+    return false;
+   });
+});
+</script>
+
 <script>
 $(document).ready(function(){
   // Add smooth scrolling to all links
