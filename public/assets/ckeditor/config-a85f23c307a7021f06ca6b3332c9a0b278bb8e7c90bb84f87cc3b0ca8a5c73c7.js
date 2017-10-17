@@ -4,7 +4,7 @@ if (typeof(CKEDITOR) != 'undefined') {
    config.toolbar = 'Basic';
    config.toolbar_Basic =
    [
-     ['Source', 'NumberedList', 'BulletedList', 'Link', 'Unlink', 'Anchor', 'Image', 'JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','Indent','Outdent', 'Table','HorizontalRule','SpecialChar', 'Iframe', 'CreateDiv'],
+     ['Source', 'NumberedList', 'BulletedList', 'Link', 'Unlink', 'Image', 'JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','Indent','Outdent', 'Table','HorizontalRule','SpecialChar', 'Iframe', 'CreateDiv'],
      ['Styles','Format','Font','FontSize', 'TextColor','BGColor', 'Bold', 'Italic', 'Underline', 'Strike','Subscript','Superscript']
    ];
  
@@ -37,3 +37,4 @@ if (typeof(CKEDITOR) != 'undefined') {
 
   }
 }
+;

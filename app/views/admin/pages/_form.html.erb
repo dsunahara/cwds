@@ -1,4 +1,15 @@
  <%= form_for(["admin", @page]) do |f| %>
+ <% if @page.errors.any?  %>
+    <div>
+      <h2><%= pluralize(@page.errors.count, "error") %> prevented from saving</h2>
+      <ul>
+        <% @page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <%end%>
+      </ul>
+    </div>
+  <%end%>
+ 
   <main id="main-content">
     <div class="usa-width-three-fourths">
       <div class="field">
@@ -9,6 +20,11 @@
       <div class="field">
         <%= f.label :body %>
         <%= f.cktext_area :body %>
+      </div>
+      
+      <div class="field" id="wikiNav">
+        <%= f.label "Wiki Navigation" %>
+        <%= f.cktext_area :wikiNav %>
       </div>
     
       <div class="field">
@@ -55,7 +71,7 @@
       </div>
       <div class="panel-body">
         <br>
-        <%= f.select :template, ['Default','File Directory','Training Portal'], :id => "templateOptions" %>
+        <%= f.select :template, ['Default','File Directory','Training Portal', 'Wiki'], :id => "templateOptions" %>
         <div id="directory-folder">
           <%= f.label :fileFolder, "Enter Default Folder" %>
           <%= f.text_field :fileFolder %>
@@ -70,11 +86,17 @@
 
 
 $(document).ready( function () {
+  
   var t = "<%= @page.template %>"
   if (t == "File Directory") {
     $('#directory-folder').show();
   } else {
     $('#directory-folder').hide();
+  }
+  if (t == "Wiki") {
+    $('#wikiNav').show();
+  } else {
+    $('#wikiNav').hide();
   }
   
   $("#page_template").change(function() {
@@ -85,6 +107,12 @@ $(document).ready( function () {
     }
     else {
       $("#directory-folder").hide();
+    }
+    if(val === "Wiki") {
+      $("#wikiNav").show();
+    }
+    else {
+      $("#wikiNav").hide();
     }
   });
 });

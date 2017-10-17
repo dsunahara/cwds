@@ -10,7 +10,9 @@ xml.rss :version => "2.0" do
     @posts.each do |post|
       xml.item do
         xml.title post.title
-        xml.description post.body
+        xml.author post.author
+        xml.description truncate(strip_tags(post.body), :length => 160)
+        
         xml.pubDate post.publish_time.to_s(:rfc822)
         xml.link post_url(post)
         xml.guid post_url(post)
