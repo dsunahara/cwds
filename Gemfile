@@ -24,6 +24,7 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'fullcalendar-rails'
 gem 'minitest', '~> 5.10', '>= 5.10.3'
+gem 'cwds-authentication', github: 'ca-cwds/cwds-authentication', :ref => "a32f309"
 
 
 

@@ -16,6 +16,6 @@ User.create!(name:  "SuperUser",
 
 User.first.roles << Role.new(name: "Site Admin")
 
-Page.create!(title: "Home",
+Page.create!(title: "Homepage",
             body: "homepage",
             slug: "home")
